@@ -1,0 +1,26 @@
+.MenuItem {
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    margin-bottom: 20px;
+    /*denied Boostrap*/
+    font-weight: normal;
+}
+
+.MenuItem > p {
+    margin: 0;
+}
+
+.MenuItem.close > p {
+    display: none;
+    /*denied Boostrap*/
+    line-height: initial;
+}
+
+.svg-inline--fa {
+    font-size: 20px;
+    margin-right: 25px;
+}

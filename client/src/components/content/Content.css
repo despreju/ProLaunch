@@ -1,0 +1,10 @@
+.Content {
+    height: 100%;
+    width: 100%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+

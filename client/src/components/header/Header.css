@@ -1,0 +1,7 @@
+.Header{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    background-color: white;
+    border-bottom: 1px solid #313150;
+}
