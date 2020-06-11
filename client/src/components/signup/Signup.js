@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import API from "../../../utils/API";
+import API from "../../utils/API";
 
 export class Signup extends React.Component {
 
@@ -32,7 +32,7 @@ export class Signup extends React.Component {
   render() {
     const { email, name, password, cpassword } = this.state;
     return (
-      <div className="Login">
+      <div className="login">
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl

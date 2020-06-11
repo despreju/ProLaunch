@@ -1,40 +1,51 @@
-.Profile {
-  position: absolute; 
-  top: 10px!important;
-  right: 50px!important;
-  /*denied Boostrap*/
-  opacity: 1!important;
+.profile {
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    margin-right: -124px;
+    transition-duration: 0.15s
 }
 
-.Profile.close {
-  text-align: center;
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
-  background-color: white;
-  border: 1px solid #313150;
-/*   transition-duration: 2s; */
-  cursor: pointer;
+.profile:hover {
+    margin-right: 0px;
+    transition-duration: 0.15s
 }
 
-.Profile.close:hover {
-  border: 2px solid orangered;
-  top: 9px!important;
-  right: 49px!important;
+.name {
+    margin-right: 20px;
 }
 
-.Profile > .fas {
-  position: relative;
-/*   top: calc(50% - 15px); */
-  margin-top: 33px;
-  font-size: 30px;
-  color: grey;
+.fa-user {
+    font-size: 50px;
+    margin-right: 20px;
 }
 
-.Profile:hover > .fas {
-  color: orangered;
+.fa-sign-out-alt {
+    padding: 16px;
+    font-size: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    cursor: pointer;
 }
 
-.Profile.open > .fas {
-  display: none;
+.fa-sign-out-alt:hover {
+    background-color: var(--main-color);
+    color: white;
 }
+
+.fa-cog {
+    padding: 16px;
+    font-size: 30px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    cursor: pointer;
+}
+
+.fa-cog:hover {
+    background-color: var(--main-color);
+    color: white;
+}
+

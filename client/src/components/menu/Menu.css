@@ -1,14 +1,6 @@
-.Menu {
-  height: 100%;
-  width: 60px;
-  background-color:#313150;
-  transition-duration: 0.15s;
-  /*denied Boostrap*/
-  opacity: 1;
-  font-size: 18px;
-}
-
-.Menu.open {
-  width: 250px;
-  transition-duration: 0.15s
+.menu {
+  height: 50px;
+  background-color: var(--main-color);
+  box-shadow: 0 2px 4px 0px grey;
+  z-index: 1;
 }

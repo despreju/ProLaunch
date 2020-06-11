@@ -1,7 +1,9 @@
 html, body {
   margin: 0;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif, sans-serif;
+  font-family: Roboto, sans-serif;
+  --main-color: orangered;
+  --main-color-transparent: #ff450012;
 }
 
 #root {
@@ -29,30 +31,44 @@ input:focus {
   border-left: 0px;
 }
 
-button {
-  font-family: Roboto, sans-serif;
+.button {
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .0892857143em;
   border-radius: 5px;
-  border: 1px solid orangered;
+  border: 1px solid var(--main-color);
   background-color: white;
-  color: orangered;  
+  color: var(--main-color);  
   padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-button:hover {
-  border: 1px solid orangered;
-  background-color: #ff450012;
+.button:hover {
+  border: 1px solid var(--main-color);
+  background-color: var(--main-color-transparent);
   padding: 10px;
   cursor: pointer;
 }
 
-button:focus {
-  border: 2px solid orangered;
-  background-color: #ff450012;
+.button:focus {
+  border: 2px solid var(--main-color);
+  background-color: var(--main-color-transparent);
   padding: 9px;
   font-weight: 700;;
   cursor: pointer;
   outline: initial;
+}
+
+.tuile {
+  background-color: white;
+  height: 180px;
+  width: 300px;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 10%;
+  box-shadow: 0px 0px 3px 0px var(--main-color);
 }

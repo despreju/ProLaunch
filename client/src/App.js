@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router-dom";
-import { Dashboard } from "./components/profile/dashboard/Dashboard.js";
-import { Login } from "./components/profile/login/Login.js";
-import { Signup } from "./components/profile/signup/Signup.js";
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import Header from './components/header/Header';
-import Wrapper from './components/wrapper/Wrapper'
-import Footer from './components/footer/Footer'
+import Menu from './components/menu/Menu';
+import Content from './components/content/Content';
+import API from "./utils/API.js";
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    isLogged : API.isAuth(),
+    profile: 
+    {
+      name : API.getProfile().name,
+      email : API.getProfile().email
+    }
+  }
+
   render() {
     return (
-      <div className='main'>
-        <Header />
-        <Wrapper />
+      <div className='main'>      
+        <Header isLogged={this.state.isLogged} profile={this.state.profile}/>
+        <Menu />
+        <Content isLogged={this.state.isLogged} profile={this.state.profile}/>
       </div>
+    );
+  }
+}
+
+export default App;
+
 /*         <div className="App">
         <div className="App-content">
           <Switch>
@@ -25,8 +40,3 @@ class App extends Component {
           </Switch>
         </div>
       </div> */
-    );
-  }
-}
-
-export default App;

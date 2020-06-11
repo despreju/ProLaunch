@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import API from "../../../utils/API";
+import API from "../../utils/API";
 import './Login.css';
 
 export class Login extends React.Component {
@@ -24,8 +24,7 @@ export class Login extends React.Component {
       const profile = {email:data.email, name:data.name};
       localStorage.setItem("token", data.token);
       localStorage.setItem("profile", JSON.stringify(profile));
-      this.props.initializeLogin(profile);
-      this.props.onClose();
+      window.location = "/";      
     } catch (error) {
       console.error(error);
     }
@@ -38,10 +37,9 @@ export class Login extends React.Component {
   };
 
   render() {
-    const { email, password, name } = this.state;
+    const {email, password} = this.state;
     return (      
-      <div className="Login">
-        <i class="fas fa-times" onClick={this.props.onClose}></i>
+      <div className="login tuile">      
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
@@ -59,11 +57,13 @@ export class Login extends React.Component {
             type="password"
           />
         </FormGroup>
-        <Button onClick={this.send} block bsSize="large" type="submit">
+        <div className='button' onClick={this.send}>
           Connexion
-        </Button>
+        </div>
 
       </div>
     );
   }
 }
+
+export default Login;

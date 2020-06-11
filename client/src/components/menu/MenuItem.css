@@ -1,4 +1,4 @@
-.MenuItem {
+.menuItem {
     height: 20px;
     margin-left: 15px;
     margin-top: 20px;
@@ -10,11 +10,11 @@
     font-weight: normal;
 }
 
-.MenuItem > p {
+.menuItem > p {
     margin: 0;
 }
 
-.MenuItem.close > p {
+.menuItem.close > p {
     display: none;
     /*denied Boostrap*/
     line-height: initial;

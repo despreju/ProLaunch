@@ -1,7 +1,13 @@
-.Header{
+.header{
+    position: relative;
     display: flex;
-    flex-direction: column;
-    height: 80px;
+    flex-direction: row;
+    height: 70px;
     background-color: white;
-    border-bottom: 1px solid #313150;
+    z-index: 2;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 20px;
 }

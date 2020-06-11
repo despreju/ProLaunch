@@ -1,11 +1,14 @@
 import React from 'react';
 import './Element.css';
 
-function Element() {
-  return (
-    <div className="Element">      
-    </div>
-  );
+class Element extends React.Component {
+
+  render() {
+    return (
+      <div className='element'>        
+      </div>
+    )
+  }      
 }
 
 export default Element;

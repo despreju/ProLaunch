@@ -5,8 +5,8 @@ class MenuItem extends React.Component {
 
   render() {
     return (
-      <div className={`MenuItem ${this.props.isOpen}`} onClick={() => {console.log('menu item')}}>        
-        <p>{this.props.title}</p>
+      <div className='menuItem' onClick={() => {console.log('menu item')}}>        
+        {this.props.title}
       </div>
     )
   }    
