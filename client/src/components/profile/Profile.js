@@ -12,7 +12,10 @@ class Profile extends React.Component {
   render() {
     return (
       <div className='profile'>  
-        <div className='name'>{this.props.profile.name}</div>
+        <div className='userInfos'>          
+          <div className='name'>{this.props.profile.name}</div>
+          <div className='email'>{this.props.profile.email}</div>
+        </div>
         <i class="fas fa-user"></i>
         <i class="fas fa-cog"></i>
         <i class="fas fa-sign-out-alt" onClick={this.disconnect}></i>

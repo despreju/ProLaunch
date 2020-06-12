@@ -15,15 +15,20 @@ class App extends Component {
     {
       name : API.getProfile().name,
       email : API.getProfile().email
-    }
+    },
+    menuSelected : ""
+  }
+
+  onSelection = (menu) => {
+    this.setState({menuSelected : menu});
   }
 
   render() {
     return (
       <div className='main'>      
         <Header isLogged={this.state.isLogged} profile={this.state.profile}/>
-        <Menu />
-        <Content isLogged={this.state.isLogged} profile={this.state.profile}/>
+        <Menu isLogged={this.state.isLogged} onSelection={this.onSelection}/>
+        <Content isLogged={this.state.isLogged} profile={this.state.profile} menuSelected={this.state.menuSelected}/>
       </div>
     );
   }

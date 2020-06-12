@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   font-family: Roboto, sans-serif;
   --main-color: orangered;
-  --main-color-transparent: #ff450012;
+  --main-color-transparent: #ffe7dd;
 }
 
 #root {

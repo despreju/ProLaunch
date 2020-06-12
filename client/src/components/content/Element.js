@@ -5,7 +5,8 @@ class Element extends React.Component {
 
   render() {
     return (
-      <div className='element'>        
+      <div className='element'>                
+        {this.props.menuSelected}
       </div>
     )
   }      

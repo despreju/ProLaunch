@@ -1,26 +1,28 @@
 .menuItem {
-    height: 20px;
-    margin-left: 15px;
-    margin-top: 20px;
-    overflow: hidden;
     color: white;
-    display: flex;
-    margin-bottom: 20px;
-    /*denied Boostrap*/
-    font-weight: normal;
+    padding: 13px 30px 13px 30px;
 }
 
-.menuItem > p {
-    margin: 0;
+.menuItem:hover {
+    color: var(--main-color);
+    background-color: var(--main-color-transparent);
+    cursor: pointer;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
-.menuItem.close > p {
-    display: none;
-    /*denied Boostrap*/
-    line-height: initial;
+.menuItem > .fas {
+    margin-right: 10px;
 }
 
-.svg-inline--fa {
-    font-size: 20px;
-    margin-right: 25px;
+.menuItem.selected {
+    color: var(--main-color);
+    background-color: white;
+    cursor: pointer;
+    border-top: 1px solid var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
