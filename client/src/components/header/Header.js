@@ -1,18 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import './Header.css';
 import Profile from '../profile/Profile';
 import logo from './logo.png';
+import {CredentialContext} from '../../contexts/CredentialContext';
 
-class Header extends React.Component {
+function Header()  {
+  
+  const {isLogged, profile} = useContext(CredentialContext);
 
-  render() {
-    return (
-      <div className='header'>
-        <img className='logo' src={logo}/>
-        {this.props.isLogged && <Profile profile={this.props.profile}/>}
-      </div>
-    )
-  }      
+  return (
+    <div className='header'>
+      <img className='logo' src={logo}/>
+      {isLogged && <Profile profile={profile}/>}
+    </div>
+  )
+     
 }
 
 export default Header;

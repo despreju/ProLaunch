@@ -1,27 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Profile.css';
 import API from "../../utils/API.js";
+import {CredentialContext} from '../../contexts/CredentialContext';
 
-class Profile extends React.Component {
+function Profile() {
 
-  disconnect = () => {
+  const {profile} = useContext(CredentialContext);
+
+  const disconnect = () => {
     API.logout();
     window.location = "/";
   };
 
-  render() {
-    return (
-      <div className='profile'>  
-        <div className='userInfos'>          
-          <div className='name'>{this.props.profile.name}</div>
-          <div className='email'>{this.props.profile.email}</div>
-        </div>
-        <i class="fas fa-user"></i>
-        <i class="fas fa-cog"></i>
-        <i class="fas fa-sign-out-alt" onClick={this.disconnect}></i>
+  return (
+    <div className='profile'>  
+      <div className='userInfos'>          
+        <div className='name'>{profile.name}</div>
+        <div className='email'>{profile.email}</div>
       </div>
-    )
-  }      
+      <i class="fas fa-user"></i>
+      <i class="fas fa-cog"></i>
+      <i class="fas fa-sign-out-alt" onClick={disconnect}></i>
+    </div>
+  )
+   
 }
 
 export default Profile;

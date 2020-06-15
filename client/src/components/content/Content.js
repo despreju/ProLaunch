@@ -1,36 +1,32 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Content.css';
 import Element from './Element';
 import Login from '../login/Login';
-import Dashboard from '../dashboard/Dashboard';
-import API from "../../utils/API.js";
 
+import {CredentialContext} from '../../contexts/CredentialContext';
+import {MenuContext} from '../../contexts/MenuContext';
 
-class Content extends React.Component {
+function Content() {
 
-  initializeLogin = (profile) => {
-    this.setState({isLogged:true, profile:profile});
-  }
-
-  driveMenu = (menu) => {
-    switch (menu) {
+  const {isLogged} = useContext(CredentialContext);
+  const {menuItemSelected} = useContext(MenuContext);
+  
+  const driveMenu = () => {
+    switch (menuItemSelected) {
       case '':
         return null;    
       default:
-        return <Element menuSelected={this.props.menuSelected}/>;
+        return <Element menuSelected={menuItemSelected}/>;
     }
-  }
+  } 
 
-  render() {
-    return (
-      <div className="content">       
-          {this.props.isLogged ? 
-            this.driveMenu(this.props.menuSelected) :
-            <Login/>
-          } 
-      </div>
-    );
-  }
+  return (
+    <div className="content">            
+      {!isLogged && <Login/>}
+      {isLogged && driveMenu()}              
+    </div>
+  );
 
 }
+
 export default Content;

@@ -18,6 +18,7 @@ export default {
       }
     );
   },
+
   signup: function(send) {
     return axios.post(`${burl}/user/signup`, send, { headers: headers });
   },
@@ -29,10 +30,13 @@ export default {
   getProfile: function() {
     const profile = JSON.parse(localStorage.getItem("profile"));
     return (profile != null ?  profile : {profile : {email : null, name : null}})
-    return JSON.parse(localStorage.getItem("profile"));
   },
 
   logout: function() {
     localStorage.clear();
+  },
+
+  getAllUsers: function() {
+    return axios.get(`${burl}/user/getAllUsers`);
   }
 };

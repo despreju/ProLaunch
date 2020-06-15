@@ -1,37 +1,38 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute.js";
+import './App.css';
+
+//Components
 import Header from './components/header/Header';
 import Menu from './components/menu/Menu';
 import Content from './components/content/Content';
-import API from "./utils/API.js";
-import './App.css';
 
-class App extends Component {
+//Contexts
+import CredentialContextProvider from './contexts/CredentialContext';
+import MenuContextProvider from './contexts/MenuContext';
 
-  state = {
-    isLogged : API.isAuth(),
-    profile: 
-    {
-      name : API.getProfile().name,
-      email : API.getProfile().email
-    },
-    menuSelected : ""
+
+function App() {
+
+  const [menuSelected, setMenuSelected] = useState("");
+
+  const handleSetMenuSelected = (menu) => {
+    setMenuSelected(menu);
   }
 
-  onSelection = (menu) => {
-    this.setState({menuSelected : menu});
-  }
-
-  render() {
-    return (
-      <div className='main'>      
-        <Header isLogged={this.state.isLogged} profile={this.state.profile}/>
-        <Menu isLogged={this.state.isLogged} onSelection={this.onSelection}/>
-        <Content isLogged={this.state.isLogged} profile={this.state.profile} menuSelected={this.state.menuSelected}/>
-      </div>
-    );
-  }
+  return (
+    <div className='main'>      
+      <CredentialContextProvider>
+        <Header/>
+        <MenuContextProvider>
+          <Menu setMenuSelected={handleSetMenuSelected}/>
+          <Content menuSelected={menuSelected}/>
+        </MenuContextProvider>
+      </CredentialContextProvider>
+    </div>
+  );
+  
 }
 
 export default App;

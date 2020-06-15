@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './MenuItem.css';
+import {MenuContext} from '../../contexts/MenuContext';
 
-class MenuItem extends React.Component {
+const MenuItem = (props) => {
 
-  changeContent = () => {   
-    this.props.onSelection(this.props.class);    
-  }  
+  const {menuItemSelected} = useContext(MenuContext);
+  const {handleSetMenuItemSelected} = useContext(MenuContext);
 
-  render() {
-    return (      
-      <div className={`menuItem ${this.props.class} ${this.props.class == this.props.selectedMenuItem ? 'selected' : ''}`} onClick={this.changeContent}>        
-        <i class={this.props.logo}></i>
-        {this.props.class}
-      </div>
-    )
-  }    
+  return (      
+    <div className={`menuItem ${props.class} ${props.class == menuItemSelected ? 'selected' : ''}`} data-tab={props.class} onClick={handleSetMenuItemSelected}>        
+      <i class={props.logo}></i>
+      {props.title}
+      {() => console.log(props.class == {menuItemSelected})}
+    </div>
+  )  
+
 }
 
 export default MenuItem;
