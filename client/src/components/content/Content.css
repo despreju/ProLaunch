@@ -1,10 +1,7 @@
 .content {
-    height: 100%;
-    width: 100%;
-    background-color: lightgrey;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    flex-wrap: wrap;
-  }
-
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}

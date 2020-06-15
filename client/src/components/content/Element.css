@@ -1,12 +1,34 @@
-.element {
-  height: 80%;
-  width: 80%;
-  border-radius: 15px;
-  text-align: center;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2%;
-  box-shadow: 0px 0px 3px 0px grey;
-  background-color: white;
+.tuile {
+    background-color: white;
+    height: 200px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 25px 50px 25px;
+    box-shadow: 0px 0px 3px 0px var(--main-color);
+    color: var(--main-color);
+  }
+  
+  .tuile.active:hover {
+    cursor: pointer;
+    background-color: var(--main-color);
+    transition: all 0.15s ease-in-out;
+    color: white;
+  }
+  
+  .tuile.inactive {
+    cursor: initial;
+    background-color: white;
+    box-shadow: 0px 0px 3px 0px #999;
+    transition: all 0.15s ease-in-out;
+    color: grey;
+  }
+
+.tuile .fas {
+    font-size: 90px;
+    margin-top: 20px;
+}
+
+.tuile > p {
+    font-size:25px;    
 }
