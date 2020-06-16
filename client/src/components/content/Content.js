@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import './Content.css';
-import Element from './Element';
+import Tuile from './Tuile';
 import Admin from './administration/Admin';
 import Statistics from './statistics/Statistics';
 import Training from './training/Training';

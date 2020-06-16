@@ -1,0 +1,40 @@
+.content.admin .usersList {
+
+}
+
+.content.admin .usersList > ul {
+    list-style: none;   
+    padding: 0px;
+}
+
+.content.admin .usersList > ul > li {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px 10px 0px;
+    padding-left: 20px;
+}
+
+.content.admin .usersList > ul > li:hover {
+    background-color: var(--main-color-transparent);
+    cursor: pointer;
+}
+
+.content.admin .usersList > ul > li .fas {
+    font-size: 40px;
+    color:white;
+    background-color:grey;
+    font-size: 25px;
+    padding: 10px;
+    border-radius:100%;
+}
+
+.content.admin .usersList > ul > li > div.infos{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: center;
+}
+
+.content.admin .usersList > ul > li > div.infos > p{
+    margin: 0px;
+}

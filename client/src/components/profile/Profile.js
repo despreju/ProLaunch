@@ -18,9 +18,9 @@ function Profile() {
         <div className='name'>{profile.name}</div>
         <div className='email'>{profile.email}</div>
       </div>
-      <i class="fas fa-user"></i>
-      <i class="fas fa-cog"></i>
-      <i class="fas fa-sign-out-alt" onClick={disconnect}></i>
+      <i className="fas fa-user"></i>
+      <i className="fas fa-cog"></i>
+      <i className="fas fa-sign-out-alt" onClick={disconnect}></i>
     </div>
   )
    

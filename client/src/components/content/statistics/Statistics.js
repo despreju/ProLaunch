@@ -1,19 +1,19 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import API from "../../../utils/API.js";
 import './Statistics.css';
-import Element from '../Element';
+import Tuile from '../Tuile';
 
 function Statistics() {
 
     return (     
         <Fragment>
             <div>
-                <Element logo={'fas fa-users'} class={'userList'} title={'Utilisateurs'} active={true}/>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
             </div>
             <div>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
             </div>
         </Fragment>
     )

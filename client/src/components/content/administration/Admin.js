@@ -1,39 +1,48 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import API from "../../../utils/API.js";
+import React, {useState, Fragment } from 'react';
 import './Admin.css';
-import Element from '../Element';
+import Tuile from '../Tuile';
+import UsersList from '../administration/UsersList';
 
-function Admin() {
+function Admin() {    
 
-    return (     
-        <Fragment>
-            <div>
-                <Element logo={'fas fa-users'} class={'userList'} title={'Utilisateurs'} active={true}/>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-            </div>
-            <div>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-                <Element logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-            </div>
-        </Fragment>
-    )
- 
+    const [menuChoice, setMenuChoice] = useState("menu");
+    const handleSetMenuChoice = (menuChoice) => {
+        console.log('handleSetMenu', menuChoice);
+        setMenuChoice(menuChoice);       
+    }  
+    
+    const userList = 'userList';
+
+    const menu = <Fragment>
+                    <div>
+                        <Tuile logo={'fas fa-users'} class={userList} title={'Utilisateurs'} active={true} onClick={() => handleSetMenuChoice(userList)}/>
+                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                    </div>
+                    <div>
+                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                    </div>
+                </Fragment>
+    
+    const driveMenu = () => {
+        console.log('driveMenu', menuChoice)
+        switch (menuChoice) {
+          case 'menu':
+            return menu;  
+          case userList:
+            return <UsersList/>;  
+          case 'statistics':
+            return null;  
+          case 'training':
+            return null;  
+          default:
+            return null;
+        }
+    }
+
+    return (             
+         driveMenu()
+    ) 
 }
 
 export default Admin;
-
-/* const [data, setData] = useState([]);
-
-useEffect(() => {
-    const fetchData = async () => {
-        const result = await API.getAllUsers();
-        setData(result.data);
-    };
-    fetchData();
-});
-
-return (     
-    <div className='admin'>      
-    {data.map((user) => <p key={user.id}>{user.name} {user.email}</p>)}     
-    </div>
-) */

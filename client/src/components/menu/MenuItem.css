@@ -15,7 +15,7 @@
 }
 
 .menuItem.selected {
-    color: var(--main-color);
+    color: black;
     background-color: white;
     cursor: pointer;
     padding-top: 12px;
