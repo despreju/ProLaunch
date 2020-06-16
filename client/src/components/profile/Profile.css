@@ -38,8 +38,8 @@
 .profile > .fa-sign-out-alt {
     padding: 16px;
     font-size: 30px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     cursor: pointer;
 }
 
@@ -51,8 +51,8 @@
 .profile > .fa-cog {
     padding: 16px;
     font-size: 30px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     cursor: pointer;
 }
 
