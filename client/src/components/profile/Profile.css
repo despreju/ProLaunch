@@ -17,7 +17,8 @@
 
 .profile:hover {
     margin-right: 0px;
-    transition-duration: 0.15s
+    transition-duration: 0.15s;
+    z-index: 99;
 }
 
 .profile > .userInfos > .name {

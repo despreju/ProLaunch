@@ -34,6 +34,8 @@ async function signup(req, res) {
     const userObject = await userData.save();
     return res.status(200).json({
       text: "Succès",
+      email: email,
+      name: name,
       token: userObject.getToken()
     });
   } catch (error) {

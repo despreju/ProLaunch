@@ -4,7 +4,7 @@ import API from "../../utils/API";
 import './Login.css';
 import {CredentialContext} from '../../contexts/CredentialContext';
 
-const Login = () => {
+const Login = (props) => {
 
   const {handleSetIslogged} = useContext(CredentialContext);
 
@@ -26,13 +26,8 @@ const Login = () => {
 
   //Component
   const send = async () => {
-   console.log({email});
-    if (!email || email.length === 0) {
-      return;
-    }
-    if (!password || password.length === 0) {
-      return;
-    }
+    if (!email || email.length === 0) return;
+    if (!password || password.length === 0) return;
     try {
       const { data } = await API.login(email, password);
       const profile = {email:data.email, name:data.name};
@@ -44,9 +39,14 @@ const Login = () => {
     }
   };
 
+  const signUp = () => {
+    console.log('signUp');
+      props.signUp();
+  }
+
   return (         
     <div className="tuile login">      
-      <FormGroup controlId="email" bsSize="large">
+      <FormGroup controlId="email">
         <ControlLabel>Email</ControlLabel>
         <FormControl
           autoFocus
@@ -55,7 +55,7 @@ const Login = () => {
           onChange={handleSetEmail}
         />
       </FormGroup>
-      <FormGroup controlId="password" bsSize="large">
+      <FormGroup controlId="password">
         <ControlLabel>Password</ControlLabel>
         <FormControl
           value={password}
@@ -63,10 +63,8 @@ const Login = () => {
           type="password"
         />
       </FormGroup>
-      <div className='button' onClick={send}>
-        Connexion
-      </div>
-      <div onClick={handleSetIslogged}></div> 
+      <div className='button' onClick={send}>Connexion</div>      
+      <div className="signupButton" onClick={signUp}>Je n'ai pas de compte</div>
     </div>
   );
 
