@@ -2,6 +2,6 @@
     margin-top: 20px;
 }
 
-.content.admin .usersList > .fas {
+.content.admin .usersList.list .fas {
     padding: 14px 15px 14px 15px;
 }

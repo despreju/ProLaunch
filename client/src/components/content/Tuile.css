@@ -6,7 +6,6 @@
     text-align: center;
     margin: 0 25px 50px 25px;
     box-shadow: 0px 0px 3px 0px black;
-    color: var(--main-color);
   }
   
   .tuile.active:hover {
