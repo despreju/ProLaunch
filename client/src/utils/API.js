@@ -38,5 +38,14 @@ export default {
 
   getAllUsers: function() {
     return axios.get(`${burl}/user/getAllUsers`);
+  },
+
+  createExercise: function(send) {
+    return axios.post(`${burl}/exercise/createExercise`, send, { headers: headers });
+  },
+
+  getAllExercises: function() {
+    return axios.get(`${burl}/exercise/getAllExercises`);
   }
+
 };

@@ -15,7 +15,7 @@ const UsersList = (props) => {
     }, []);
 
     return (     
-        <div className='usersList'>  
+        <div className='list usersList'>  
             <ul>    
                 {data.map((user) =>                     
                     <li key={user.id}>

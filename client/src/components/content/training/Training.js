@@ -1,39 +1,49 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import API from "../../../utils/API.js";
+import React, {useState, Fragment } from 'react';
 import './Training.css';
 import Tuile from '../Tuile';
+import ExercisesList from '../administration/ExercisesList';
 
 function Training() {
 
-    return (     
-        <Fragment>
-            <div>
-                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-            </div>
-            <div>
-                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-                <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
-            </div>
-        </Fragment>
+    const [menuChoice, setMenuChoice] = useState("menu");
+    const handleSetMenuChoice = (menuChoice) => {
+        console.log('handleSetMenu', menuChoice);
+        setMenuChoice(menuChoice);       
+    }  
+
+    const exercisesList = 'exercisesList';
+
+    const menu = <Fragment>
+                    <div>
+                        <Tuile logo={'fas fa-wrench'} class={exercisesList} title={'En cours ...'} active={false}/>
+                        <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                    </div>
+                    <div>
+                        <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                        <Tuile logo={'fas fa-wrench'} class={'userList'} title={'En cours ...'} active={false}/>
+                    </div>
+                </Fragment>
+
+    const driveMenu = () => {
+        console.log('driveMenu', menuChoice)
+        switch (menuChoice) {
+        case 'menu':
+            return menu;  
+        case exercisesList:
+            return null;  
+        case 'statistics':
+            return null;  
+        case 'training':
+            return null;  
+        default:
+            return null;
+        }   
+    }
+
+    return (             
+         driveMenu()
     )
  
 }
 
 export default Training;
-
-/* const [data, setData] = useState([]);
-
-useEffect(() => {
-    const fetchData = async () => {
-        const result = await API.getAllUsers();
-        setData(result.data);
-    };
-    fetchData();
-});
-
-return (     
-    <div className='admin'>      
-    {data.map((user) => <p key={user.id}>{user.name} {user.email}</p>)}     
-    </div>
-) */

@@ -27,7 +27,7 @@ const Login = () => {
   //Component
   const send = async () => {
    console.log({email});
-    if (!email || email .length === 0) {
+    if (!email || email.length === 0) {
       return;
     }
     if (!password || password.length === 0) {
@@ -44,14 +44,8 @@ const Login = () => {
     }
   };
 
-  const handleChange = (event) => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  };
-
   return (         
-    <div className="login tuile">      
+    <div className="tuile login">      
       <FormGroup controlId="email" bsSize="large">
         <ControlLabel>Email</ControlLabel>
         <FormControl

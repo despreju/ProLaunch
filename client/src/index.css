@@ -32,6 +32,8 @@ input:focus {
 }
 
 .button {
+  display: flex;
+  align-items: center;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: .0892857143em;
@@ -42,6 +44,14 @@ input:focus {
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button .fas{
+  font-size: 20px;
+  margin-right: 15px;
 }
 
 .button:hover {
@@ -58,4 +68,58 @@ input:focus {
   font-weight: 700;;
   cursor: pointer;
   outline: initial;
+}
+
+.list > ul {
+  display: flex;
+  list-style: none;   
+  padding: 0px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list > ul > li {
+  background-color: white;
+  display: flex;
+  vertical-align: top;
+  padding: 40px;
+  margin: 10px;
+  box-shadow: 0 0 2px 0px black;
+  border-radius: 10px;
+}
+
+.list > ul > li:hover {
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.list > ul > li .fas {
+  font-size: 40px;
+  color:white;
+  background-color:grey;
+  font-size: 25px;
+  padding: 17px 15px 17px 15px;
+  border-radius:100%;
+}
+
+.list > ul > li > div.infos{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.list > ul > li > div.infos > p{
+  margin: 0px;
+}
+
+.list > ul > li > div.infos > p.name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.list > ul > li > div.infos > p.difficulty {
+  font-style: italic;
+  font-size: 14px;
 }

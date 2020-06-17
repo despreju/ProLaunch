@@ -2,6 +2,7 @@ import React, {useState, Fragment } from 'react';
 import './Admin.css';
 import Tuile from '../Tuile';
 import UsersList from '../administration/UsersList';
+import ExercisesList from '../administration/ExercisesList';
 
 function Admin() {    
 
@@ -11,12 +12,13 @@ function Admin() {
         setMenuChoice(menuChoice);       
     }  
     
-    const userList = 'userList';
+    const usersList = 'usersList';
+    const exercisesList = 'exercisesList';
 
     const menu = <Fragment>
                     <div>
-                        <Tuile logo={'fas fa-users'} class={userList} title={'Utilisateurs'} active={true} onClick={() => handleSetMenuChoice(userList)}/>
-                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                        <Tuile logo={'fas fa-users'} class={usersList} title={'Utilisateurs'} active={true} onClick={() => handleSetMenuChoice(usersList)}/>
+                        <Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => handleSetMenuChoice(exercisesList)}/>
                     </div>
                     <div>
                         <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
@@ -29,10 +31,10 @@ function Admin() {
         switch (menuChoice) {
           case 'menu':
             return menu;  
-          case userList:
+          case usersList:
             return <UsersList/>;  
-          case 'statistics':
-            return null;  
+          case exercisesList:
+            return <ExercisesList/>;  
           case 'training':
             return null;  
           default:

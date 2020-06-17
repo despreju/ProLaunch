@@ -1,7 +1,7 @@
-const account = require('./account/lib.js');
+const user = require('./user/userLib.js');
 
 module.exports = function (app) {
-    app.post('/login',account.login);
-    app.post('/signup',account.signup);
-    app.get('/getAllUsers',account.getAllUsers);
+    app.post('/login',user.login);
+    app.post('/signup',user.signup);
+    app.get('/getAllUsers',user.getAllUsers);
 }
