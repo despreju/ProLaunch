@@ -1,9 +1,9 @@
 import React, {useContext, useState, useEffect} from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import API from "../../../utils/API";
+import API from "../../../../utils/API";
 import './NewExercise.css';
 
-const NewExercise = () => {
+const NewExercise = (props) => {
 
   //State
   const [name, setName] = useState("");
@@ -26,6 +26,8 @@ const NewExercise = () => {
     if (!{name} || {name}.length === 0) return; 
     try {  
       const { data } = await API.createExercise({ name, difficulty, location });
+      const newExercise = {id:data.id, name:data.name, difficulty:data.difficulty, location:data.location};
+      props.update(newExercise);
     } catch (error) {
       console.error(error);
     }

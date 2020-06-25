@@ -30,6 +30,10 @@ async function createExercise(req, res) {
     const exerciseObject = await exerciseData.save();
     return res.status(200).json({
       text: "Succès",
+      id: exerciseObject.id,
+      name: name,
+      difficulty: difficulty,
+      location: location
     });
   } catch (error) {
     return res.status(500).json({ error });

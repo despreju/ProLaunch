@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import API from "../../../utils/API.js";
+import API from "../../../../utils/API.js";
 import './UsersList.css';
 
 const UsersList = (props) => {

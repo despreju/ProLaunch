@@ -1,7 +1,6 @@
 import React, {useState, Fragment } from 'react';
 import './Training.css';
 import Tuile from '../Tuile';
-import ExercisesList from '../administration/ExercisesList';
 
 function Training() {
 

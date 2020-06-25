@@ -46,6 +46,13 @@ export default {
 
   getAllExercises: function() {
     return axios.get(`${burl}/exercise/getAllExercises`);
-  }
+  },
 
+  createTraining: function(send) {
+    return axios.post(`${burl}/exercise/createExercise`, send, { headers: headers });
+  },
+
+  getAllTrainings: function() {
+    return axios.get(`${burl}/training/getAllTrainings`);
+  }
 };

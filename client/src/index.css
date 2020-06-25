@@ -2,8 +2,8 @@ html, body {
   margin: 0;
   height: 100%;
   font-family: Roboto, sans-serif;
-  --main-color: orangered;
-  --main-color-transparent: #ffe7dd;
+  --main-color: rgba(71, 132, 132, 1);
+  --main-color-transparent: rgba(71, 132, 132, 0.1);
 }
 
 #root {
@@ -80,6 +80,7 @@ input:focus {
 }
 
 .list > ul > li {
+  position: relative;
   background-color: white;
   display: flex;
   vertical-align: top;
@@ -87,11 +88,15 @@ input:focus {
   margin: 10px;
   box-shadow: 0 0 2px 0px black;
   border-radius: 10px;
+  width: 200px;
+  overflow: hidden;
+  align-items: center;
+  max-height: 59px;
 }
 
 .list > ul > li:hover {
-  background-color: lightgrey;
-  cursor: pointer;
+  border: 2px solid var(--main-color);  
+  padding: 38px;
 }
 
 .list > ul > li .fas {

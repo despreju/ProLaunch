@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import './Signup.css';
+import ErrorLogin from './ErrorLogin'
 
 function Signup() {
 
@@ -10,6 +11,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
   const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
   //Handle
   const handleSetEmail = (event) => {
@@ -24,19 +26,22 @@ function Signup() {
   const handleSetName = (event) => {
     setName(event.target.value);
   }
+  const handleSetError = (error) => {
+    setError(error);
+  }
   
   const send = async () => {
-    if (!email || email.length === 0) return;
-    if (!name || name.length === 0) return;
-    if (!password || password.length === 0 || password !== cpassword) return;
     try {
+      if (!email || email.length === 0) throw new Error('Opss!');
+      if (!name || name.length === 0) throw new Error('Opss!');
+      if (!password || password.length === 0 || password !== cpassword) throw new Error('Opss!');
       const { data } = await API.signup({ email, name, password });
       const profile = {email:data.email, name:data.name};
       localStorage.setItem("token", data.token);
       localStorage.setItem("profile", JSON.stringify(profile));
       window.location = "/";
     } catch (error) {
-      console.error(error);
+      handleSetError(error.message);
     }
   };
 
@@ -77,6 +82,7 @@ function Signup() {
           />
         </FormGroup>
         <div className='button' onClick={send}>Inscription</div>
+        {error && <ErrorLogin error={error}/>}   
       </div>
     );
 

@@ -5,7 +5,7 @@ import Admin from './administration/Admin';
 import Statistics from './statistics/Statistics';
 import Training from './training/Training';
 import Login from '../login/Login';
-import Signup from '../signup/Signup';
+import Signup from '../login/Signup';
 
 import {CredentialContext} from '../../contexts/CredentialContext';
 import {MenuContext} from '../../contexts/MenuContext';

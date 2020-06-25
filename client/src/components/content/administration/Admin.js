@@ -1,8 +1,9 @@
 import React, {useState, Fragment } from 'react';
 import './Admin.css';
 import Tuile from '../Tuile';
-import UsersList from '../administration/UsersList';
-import ExercisesList from '../administration/ExercisesList';
+import UsersList from './users/UsersList';
+import ExercisesList from './exercises/ExercisesList';
+import TrainingsList from './trainings/TrainingsList';
 
 function Admin() {    
 
@@ -14,6 +15,7 @@ function Admin() {
     
     const usersList = 'usersList';
     const exercisesList = 'exercisesList';
+    const trainingsList = 'trainingsList';
 
     const menu = <Fragment>
                     <div>
@@ -21,7 +23,7 @@ function Admin() {
                         <Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => handleSetMenuChoice(exercisesList)}/>
                     </div>
                     <div>
-                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                        <Tuile logo={'fas fa-running'} class={trainingsList} title={'Entrainements'} active={true} onClick={() => handleSetMenuChoice(trainingsList)}/>
                         <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
                     </div>
                 </Fragment>
@@ -35,8 +37,8 @@ function Admin() {
             return <UsersList/>;  
           case exercisesList:
             return <ExercisesList/>;  
-          case 'training':
-            return null;  
+          case trainingsList:
+            return <TrainingsList/>;  
           default:
             return null;
         }
