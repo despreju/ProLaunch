@@ -9,7 +9,6 @@ function Admin() {
 
     const [menuChoice, setMenuChoice] = useState("menu");
     const handleSetMenuChoice = (menuChoice) => {
-        console.log('handleSetMenu', menuChoice);
         setMenuChoice(menuChoice);       
     }  
     
@@ -29,7 +28,6 @@ function Admin() {
                 </Fragment>
     
     const driveMenu = () => {
-        console.log('driveMenu', menuChoice)
         switch (menuChoice) {
           case 'menu':
             return menu;  

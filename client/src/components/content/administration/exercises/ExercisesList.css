@@ -2,10 +2,6 @@
     margin-top: 20px;   
 }
 
-.content.admin .exercisesList {
-    margin-top: 20px;   
-}
-
 .content.admin .exercisesList > ul > li.addExercise {
     align-items: center;
     font-weight: bold;

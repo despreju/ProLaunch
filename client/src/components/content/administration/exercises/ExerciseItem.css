@@ -23,7 +23,6 @@
     right: 0;
     border-radius: 0;
     padding: 25px;     
-    background-color: var(--main-color-transparent) !important; 
     cursor: pointer;    
 }
 

@@ -44,6 +44,10 @@ export default {
     return axios.post(`${burl}/exercise/createExercise`, send, { headers: headers });
   },
 
+  deleteExercise: function(send) {
+    return axios.post(`${burl}/exercise/deleteExercise`, send, { headers: headers });
+  },
+
   getAllExercises: function() {
     return axios.get(`${burl}/exercise/getAllExercises`);
   },

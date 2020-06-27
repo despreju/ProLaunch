@@ -43,7 +43,6 @@ async function createTraining(req, res) {
 
 async function getAllTrainings(req, res) {  
   try {
-    // On check si l'utilisateur existe en base
     const rep = (await Training.find());
     const trainingsList = [];
     rep.forEach(element => trainingsList.push({"id":element.id, "name":element.name, "exercice":element.exercice}));

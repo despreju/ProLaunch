@@ -35,12 +35,12 @@ const ExercisesList = (props) => {
             }           
             <ul>
                 {!displayNewExercise && 
-                    <li className='addExercise' onClick={handleSetDisplayNewExercise}>
+                    <li key={1} className='addExercise' onClick={handleSetDisplayNewExercise}>
                         <i className="fas fa-plus"></i>
                         Ajouter un exercice
                     </li>}    
                 {data.map((exercise) =>    
-                    <ExerciseItem id={exercise.id} name={exercise.name} difficulty={exercise.difficulty}/>)          
+                    <ExerciseItem key={exercise.id} name={exercise.name} difficulty={exercise.difficulty}/>)          
                 }
             </ul>
         </div>

@@ -1,12 +1,12 @@
 import React, {Fragment, useEffect, useState} from 'react'
 import API from "../../../../utils/API.js";
 import './TrainingsList.css';
-/* import NewExercise from './NewExercise.js'; */
+import NewTraining from './NewTraining.js';
 
 const TrainingsList = (props) => {
 
     const [data, setData] = useState([]);
-/*     const [displayNewExercise, setDisplayNewExercise] = useState(false); */
+    const [displayNewTraining, setDisplayNewTraining] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,27 +16,28 @@ const TrainingsList = (props) => {
         fetchData();
     }, []);
 
-/*     const handleSetDisplayNewExercise = () => {
-        setDisplayNewExercise(!displayNewExercise);
-    } */
+    const handleSetDisplayNewTraining = () => {
+        setDisplayNewTraining(!displayNewTraining);
+    }
 
     const updateData = (obj) => {  
         const p = {data}.data.push(obj);  
         const u = {data};
         setData(data); 
-/*         handleSetDisplayNewExercise(); */
+        handleSetDisplayNewTraining();
     }
 
     return (                       
         <div className='list trainingsList'>  
-            {/* {displayNewExercise ?  
-                <NewExercise update={updateData}/> :  
-                <div className="button addTraininge" onClick={handleSetDisplayNewExercise}>
-                    <i className="fas fa-plus">
-                        </i> Ajouter un exercice
-                </div> 
-            }    */}        
-            <ul>    
+            {displayNewTraining && 
+                <NewTraining update={updateData}/> 
+            }
+            <ul> 
+                {!displayNewTraining && 
+                    <li key={1} className='addTraining' onClick={handleSetDisplayNewTraining}>
+                        <i className="fas fa-plus"></i>
+                        Ajouter un entrainement
+                    </li>}     
                 {data.map((training) =>                     
                     <li key={training.id}>
                         <i className="fas fa-dumbbell"></i>

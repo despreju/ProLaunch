@@ -1,3 +1,27 @@
 .content.admin .trainingsList {
     margin-top: 20px;   
 }
+
+.content.admin .trainingsList > ul > li.addTraining {
+    align-items: center;
+    font-weight: bold;
+}
+
+
+.content.admin .trainingsList > ul > li.addTraining >i.fa-plus {
+    padding: 18px;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    background-color: white; 
+    margin-right: 20px;
+}
+
+.content.admin .trainingsList > ul > li.addTraining:hover {
+    cursor: pointer;
+}
+
+.content.admin .trainingsList > ul > li.addTraining:hover >i.fa-plus {
+    color: white;
+    background-color: var(--main-color); 
+    margin-right: 20px;
+}

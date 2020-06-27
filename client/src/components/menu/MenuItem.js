@@ -11,7 +11,6 @@ const MenuItem = (props) => {
     <div className={`menuItem ${props.class} ${props.class == menuItemSelected ? 'selected' : ''}`} data-tab={props.class} onClick={handleSetMenuItemSelected}>        
       <i className={props.logo}></i>
       {props.title}
-      {() => console.log(props.class == {menuItemSelected})}
     </div>
   )  
 

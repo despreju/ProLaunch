@@ -40,9 +40,27 @@ async function createExercise(req, res) {
   }
 }
 
+async function deleteExercise(req, res) {  
+  const {name} = req.body;
+  if (!name ) {
+    return res.status(400).json({
+      text: "Requête invalide"
+    });
+  }
+  try {    
+    await Exercise.findOneAndRemove({name});
+    return res.status(200).json({
+      text: "Succès"
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error
+    });
+  }
+}
+
 async function getAllExercises(req, res) {  
   try {
-    // On check si l'utilisateur existe en base
     const rep = (await Exercise.find());
     const exercisesList = [];
     rep.forEach(element => exercisesList.push({"id":element.id, "name":element.name, "difficulty":element.difficulty}));
@@ -59,3 +77,4 @@ async function getAllExercises(req, res) {
 //On exporte nos fonctions
 exports.createExercise = createExercise;
 exports.getAllExercises = getAllExercises;
+exports.deleteExercise = deleteExercise;
