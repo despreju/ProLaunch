@@ -1,5 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import API from "../../../utils/API.js";
+import React, {Fragment } from 'react';
 import './Statistics.css';
 import Tuile from '../Tuile';
 

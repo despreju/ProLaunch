@@ -18,10 +18,6 @@ function Content() {
   
   const [isSignUpForm, setIsSignUpForm] = useState(false);
 
-  const handleSetIsSignUpForm = () => {
-    setIsSignUpForm(true);
-  }  
-
   const driveMenu = () => {
     switch (menuItemSelected) {
       case '':
@@ -39,7 +35,7 @@ function Content() {
 
   return (
     <div className={`content ${menuItemSelected}`}>            
-      {!isLogged ? (!isSignUpForm ? <Login signUp={handleSetIsSignUpForm}/> : <Signup/>) : driveMenu()}           
+      {!isLogged ? (!isSignUpForm ? <Login signUp={setIsSignUpForm}/> : <Signup/>) : driveMenu()}           
     </div>
   );
 

@@ -5,10 +5,6 @@ import Tuile from '../Tuile';
 function Training() {
 
     const [menuChoice, setMenuChoice] = useState("menu");
-    const handleSetMenuChoice = (menuChoice) => {
-        console.log('handleSetMenu', menuChoice);
-        setMenuChoice(menuChoice);       
-    }  
 
     const exercisesList = 'exercisesList';
 

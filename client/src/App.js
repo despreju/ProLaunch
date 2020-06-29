@@ -17,16 +17,12 @@ function App() {
 
   const [menuSelected, setMenuSelected] = useState("");
 
-  const handleSetMenuSelected = (menu) => {
-    setMenuSelected(menu);
-  }
-
   return (
     <div className='main'>      
       <CredentialContextProvider>
         <Header/>
         <MenuContextProvider>
-          <Menu setMenuSelected={handleSetMenuSelected}/>
+          <Menu setMenuSelected={setMenuSelected}/>
           <Content menuSelected={menuSelected}/>
         </MenuContextProvider>
       </CredentialContextProvider>

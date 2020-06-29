@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, {useContext } from 'react';
 import './Header.css';
 import Profile from '../profile/Profile';
 import logo from './logo.png';

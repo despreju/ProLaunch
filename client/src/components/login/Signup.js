@@ -26,10 +26,7 @@ function Signup() {
   const handleSetName = (event) => {
     setName(event.target.value);
   }
-  const handleSetError = (error) => {
-    setError(error);
-  }
-  
+
   const send = async () => {
     try {
       if (!email || email.length === 0) throw new Error('Opss!');
@@ -41,7 +38,7 @@ function Signup() {
       localStorage.setItem("profile", JSON.stringify(profile));
       window.location = "/";
     } catch (error) {
-      handleSetError(error.message);
+      setError(error.message);
     }
   };
 

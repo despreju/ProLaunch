@@ -8,9 +8,6 @@ import TrainingsList from './trainings/TrainingsList';
 function Admin() {    
 
     const [menuChoice, setMenuChoice] = useState("menu");
-    const handleSetMenuChoice = (menuChoice) => {
-        setMenuChoice(menuChoice);       
-    }  
     
     const usersList = 'usersList';
     const exercisesList = 'exercisesList';
@@ -18,11 +15,11 @@ function Admin() {
 
     const menu = <Fragment>
                     <div>
-                        <Tuile logo={'fas fa-users'} class={usersList} title={'Utilisateurs'} active={true} onClick={() => handleSetMenuChoice(usersList)}/>
-                        <Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => handleSetMenuChoice(exercisesList)}/>
+                        <Tuile logo={'fas fa-users'} class={usersList} title={'Utilisateurs'} active={true} onClick={() => setMenuChoice(usersList)}/>
+                        <Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => setMenuChoice(exercisesList)}/>
                     </div>
                     <div>
-                        <Tuile logo={'fas fa-running'} class={trainingsList} title={'Entrainements'} active={true} onClick={() => handleSetMenuChoice(trainingsList)}/>
+                        <Tuile logo={'fas fa-running'} class={trainingsList} title={'Entrainements'} active={true} onClick={() => setMenuChoice(trainingsList)}/>
                         <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
                     </div>
                 </Fragment>

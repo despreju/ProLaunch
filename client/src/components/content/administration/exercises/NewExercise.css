@@ -1,6 +1,49 @@
-.content.admin .tuile.newExercise {
-    padding: 20px 20px 50px 20px;
-    margin-left: auto;
+.content.admin li.newExercise {
+    flex-direction: column;
+    align-items: flex-end;
+    border: 2px solid var(--main-color);
+    padding: 10px;
+    height: 119px;
+    width: auto;
+}
+
+.content.admin li.newExercise:hover {
+    background-color: white;
+}
+
+.content.admin li.newExercise > div.form-group {
+    flex-direction: row;
+    align-items: center;
+    height: 30px;
+}
+
+.content.admin li.newExercise > div.form-group > label {
+    margin-right: 20px;
+    font-size: 15px;
+}
+
+.content.admin li.newExercise > div.form-group > input {
+    margin-right: 10px;
+    width: 165px;
+}
+
+.content.admin .exercisesList > ul > li.newExercise > div.option {
+    position: relative;
     margin-right: auto;
-    margin-top: 20px;
+    margin-left: auto;
+    font-size: 30px;
+    margin-top: 5px;
+
+}
+
+.content.admin .exercisesList > ul > li.newExercise > div.option > i {
+    position: relative;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.content.admin .exercisesList > ul > li.newExercise > div.option > i:hover {
+    cursor: pointer;
+    font-weight: bolder;
+    color: var(--main-color);
 }

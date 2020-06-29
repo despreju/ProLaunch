@@ -16,28 +16,17 @@ const TrainingsList = (props) => {
         fetchData();
     }, []);
 
-    const handleSetDisplayNewTraining = () => {
-        setDisplayNewTraining(!displayNewTraining);
-    }
-
     const updateData = (obj) => {  
-        const p = {data}.data.push(obj);  
-        const u = {data};
+        data.push(obj);  
+        setData([]); 
         setData(data); 
-        handleSetDisplayNewTraining();
+        
     }
 
     return (                       
-        <div className='list trainingsList'>  
-            {displayNewTraining && 
-                <NewTraining update={updateData}/> 
-            }
+        <div className='list trainingsList'>                 
             <ul> 
-                {!displayNewTraining && 
-                    <li key={1} className='addTraining' onClick={handleSetDisplayNewTraining}>
-                        <i className="fas fa-plus"></i>
-                        Ajouter un entrainement
-                    </li>}     
+                <NewTraining update={updateData}/>                
                 {data.map((training) =>                     
                     <li key={training.id}>
                         <i className="fas fa-dumbbell"></i>

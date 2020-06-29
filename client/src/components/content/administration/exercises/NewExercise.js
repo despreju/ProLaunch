@@ -1,7 +1,8 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useState, Fragment} from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import API from "../../../../utils/API";
+import API from "../../../../utils/API.js";
 import './NewExercise.css';
+import Option from '../../Option.js';
 
 const NewExercise = (props) => {
 
@@ -9,6 +10,7 @@ const NewExercise = (props) => {
   const [name, setName] = useState("");
   const [difficulty, setDifficulty] = useState(1);
   const [location, setLocation] = useState("");
+  const [displayNewExercise, setDisplayNewExercise] = useState(false);
 
   //Handle
   const handleSetName = (event) => {
@@ -28,41 +30,55 @@ const NewExercise = (props) => {
       const { data } = await API.createExercise({ name, difficulty, location });
       const newExercise = {id:data.id, name:data.name, difficulty:data.difficulty, location:data.location};
       props.update(newExercise);
+      setDisplayNewExercise(!{displayNewExercise});
     } catch (error) {
       console.error(error);
     }
   };
 
-  return (         
-    <div className="tuile newExercise">      
-      <FormGroup controlId="name" bsSize="large">
-        <ControlLabel>Name</ControlLabel>
-        <FormControl
-            type="name"
-            value={name}
-            onChange={handleSetName}
-        />
-      </FormGroup>
-      <FormGroup controlId="difficulty" bsSize="large">
-        <ControlLabel>Difficulté</ControlLabel>
-        <FormControl
-            type="difficulty"
-            value={difficulty}
-            onChange={handleSetDifficulty}          
-        />
-      </FormGroup>
-      <FormGroup controlId="location" bsSize="large">
-        <ControlLabel>Location</ControlLabel>
-        <FormControl
-            type="location"
-            value={location}
-            onChange={handleSetLocation}          
-        />
-      </FormGroup>
-      <div className='button' onClick={send}>
-        Créer exercice
-      </div>
-    </div>
+  const back = () => {
+    setName('');
+    setDifficulty(1);
+    setLocation('');
+    setDisplayNewExercise();
+  }
+
+  return ( 
+    <Fragment>        
+      {displayNewExercise ?
+        <li className="newExercise">      
+          <FormGroup controlId="name" bsSize="large">
+            <ControlLabel>Name</ControlLabel>
+            <FormControl
+                type="name"
+                value={name}
+                onChange={handleSetName}
+            />
+          </FormGroup>
+          <FormGroup controlId="difficulty" bsSize="large">
+            <ControlLabel>Difficulté</ControlLabel>
+            <FormControl
+                type="difficulty"
+                value={difficulty}
+                onChange={handleSetDifficulty}          
+            />
+          </FormGroup>
+          <FormGroup controlId="location" bsSize="large">
+            <ControlLabel>Location</ControlLabel>
+            <FormControl
+                type="location"
+                value={location}
+                onChange={handleSetLocation}          
+            />
+          </FormGroup>
+          <Option back={back} valid={send}/>
+        </li> :
+        <li key={1} className='addExercise' onClick={setDisplayNewExercise}>
+            <i className="fas fa-plus"></i>
+            Ajouter un exercice
+        </li>
+      }
+    </Fragment>
   );
 
 }

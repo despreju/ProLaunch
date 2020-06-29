@@ -8,7 +8,7 @@ const MenuItem = (props) => {
   const {handleSetMenuItemSelected} = useContext(MenuContext);
 
   return (      
-    <div className={`menuItem ${props.class} ${props.class == menuItemSelected ? 'selected' : ''}`} data-tab={props.class} onClick={handleSetMenuItemSelected}>        
+    <div className={`menuItem ${props.class} ${props.class === menuItemSelected ? 'selected' : ''}`} data-tab={props.class} onClick={handleSetMenuItemSelected}>        
       <i className={props.logo}></i>
       {props.title}
     </div>

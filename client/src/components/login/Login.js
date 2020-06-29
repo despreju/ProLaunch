@@ -1,13 +1,11 @@
-import React, {useContext, useState, useEffect} from "react";
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import React, {useContext, useState} from "react";
+import {FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import './Login.css';
 import ErrorLogin from './ErrorLogin'
 import {CredentialContext} from '../../contexts/CredentialContext';
 
 const Login = (props) => {
-
-  const {handleSetIslogged} = useContext(CredentialContext);
 
   //State
   const [email, setEmail] = useState("");
@@ -21,9 +19,6 @@ const Login = (props) => {
   const handleSetPassword = (event) => {
     setPassword(event.target.value);
   }  
-  const handleSetError = (error) => {
-    setError(error);
-  }
 
   //Component
   const send = async () => {
@@ -36,13 +31,13 @@ const Login = (props) => {
       localStorage.setItem("profile", JSON.stringify(profile));
       window.location = "/";
     } catch (error) {
-      handleSetError(error.message);
+      setError(error.message);
     }
   };
 
   const signUp = () => {
     console.log('signUp');
-      props.signUp();
+      props.signUp(true);
   }
 
   return (         
