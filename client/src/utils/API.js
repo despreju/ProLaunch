@@ -53,7 +53,7 @@ export default {
   },
 
   createTraining: function(send) {
-    return axios.post(`${burl}/exercise/createExercise`, send, { headers: headers });
+    return axios.post(`${burl}/training/createTraining`, send, { headers: headers });
   },
 
   getAllTrainings: function() {

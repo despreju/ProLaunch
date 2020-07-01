@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
+
 import './Content.css';
-import Tuile from './Tuile';
 import Admin from './administration/Admin';
 import Statistics from './statistics/Statistics';
 import Training from './training/Training';

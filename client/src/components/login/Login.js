@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import API from "../../utils/API";
 import './Login.css';
 import ErrorLogin from './ErrorLogin'
-import {CredentialContext} from '../../contexts/CredentialContext';
+
 
 const Login = (props) => {
 
