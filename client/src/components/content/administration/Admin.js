@@ -4,6 +4,7 @@ import Tuile from '../Tuile';
 import UsersList from './users/UsersList';
 import ExercisesList from './exercises/ExercisesList';
 import TrainingsList from './trainings/TrainingsList';
+import {Route, Link} from 'react-router-dom';
 
 function Admin() {    
 
@@ -15,32 +16,21 @@ function Admin() {
 
     const menu = <Fragment>
                     <div>
+                      <Link to="/admin/users">
                         <Tuile logo={'fas fa-users'} class={usersList} title={'Utilisateurs'} active={true} onClick={() => setMenuChoice(usersList)}/>
-                        <Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => setMenuChoice(exercisesList)}/>
+                      </Link>
+                        <Link to="/admin/exercises"><Tuile logo={'fas fa-dumbbell'} class={exercisesList} title={'Exercices'} active={true} onClick={() => setMenuChoice(exercisesList)}/></Link>
                     </div>
                     <div>
-                        <Tuile logo={'fas fa-running'} class={trainingsList} title={'Entrainements'} active={true} onClick={() => setMenuChoice(trainingsList)}/>
-                        <Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/>
+                    <Link to="/admin/trainings"><Tuile logo={'fas fa-running'} class={trainingsList} title={'Entrainements'} active={true} onClick={() => setMenuChoice(trainingsList)}/></Link>
+                    <Link to="/"><Tuile logo={'fas fa-wrench'} class={'none'} title={'En cours ...'} active={false}/></Link>
                     </div>
                 </Fragment>
-    
-    const driveMenu = () => {
-        switch (menuChoice) {
-          case 'menu':
-            return menu;  
-          case usersList:
-            return <UsersList/>;  
-          case exercisesList:
-            return <ExercisesList/>;  
-          case trainingsList:
-            return <TrainingsList/>;  
-          default:
-            return null;
-        }
-    }
 
-    return (             
-         driveMenu()
+    return (            
+      <Fragment>
+        {menu} 
+      </Fragment>
     ) 
 }
 

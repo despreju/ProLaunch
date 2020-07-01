@@ -7,6 +7,7 @@ const MenuContextProvider = (props) => {
     const [menuItemSelected, setMenuItemSelected] = useState("");
   
     const handleSetMenuItemSelected = (event) => {
+        console.log('click');
       setMenuItemSelected(event.target.getAttribute('data-tab'));
     }
   

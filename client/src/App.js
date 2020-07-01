@@ -7,6 +7,7 @@ import './App.css';
 import Header from './components/header/Header';
 import Menu from './components/menu/Menu';
 import Content from './components/content/Content';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 //Contexts
 import CredentialContextProvider from './contexts/CredentialContext';
@@ -22,8 +23,10 @@ function App() {
       <CredentialContextProvider>
         <Header/>
         <MenuContextProvider>
-          <Menu setMenuSelected={setMenuSelected}/>
-          <Content menuSelected={menuSelected}/>
+          <Router>
+            <Menu setMenuSelected={setMenuSelected}/>
+            <Content menuSelected={menuSelected}/>
+          </Router>
         </MenuContextProvider>
       </CredentialContextProvider>
     </div>

@@ -9,7 +9,7 @@ const MenuItem = (props) => {
 
   return (      
     <div className={`menuItem ${props.class} ${props.class === menuItemSelected ? 'selected' : ''}`} data-tab={props.class} onClick={handleSetMenuItemSelected}>        
-      <i className={props.logo}></i>
+      <i className={props.logo} data-tab={props.class}></i>
       {props.title}
     </div>
   )  

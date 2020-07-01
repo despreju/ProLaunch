@@ -6,7 +6,10 @@ import Statistics from './statistics/Statistics';
 import Training from './training/Training';
 import Login from '../login/Login';
 import Signup from '../login/Signup';
-
+import UsersList from './administration/users/UsersList';
+import ExercisesList from './administration/exercises/ExercisesList';
+import TrainingsList from './administration/trainings/TrainingsList';
+import { PrivateRoute } from "../PrivateRoute.js";
 import {CredentialContext} from '../../contexts/CredentialContext';
 import {MenuContext} from '../../contexts/MenuContext';
 
@@ -18,24 +21,15 @@ function Content() {
   
   const [isSignUpForm, setIsSignUpForm] = useState(false);
 
-  const driveMenu = () => {
-    switch (menuItemSelected) {
-      case '':
-        return null;  
-      case 'admin':
-        return <Admin/>;  
-      case 'statistics':
-        return <Statistics/>;  
-      case 'training':
-        return <Training/>;  
-      default:
-        return null;
-    }
-  } 
-
-  return (
-    <div className={`content ${menuItemSelected}`}>            
-      {!isLogged ? (!isSignUpForm ? <Login signUp={setIsSignUpForm}/> : <Signup/>) : driveMenu()}           
+  return (    
+    <div className={`content ${menuItemSelected}`}>        
+        <PrivateRoute path="/training" exact component={Training}/>    
+        <PrivateRoute path="/statistics" exact component={Statistics}/> 
+        <PrivateRoute path="/admin" exact component={Admin}/>
+        <PrivateRoute path="/admin/trainings" exact component={TrainingsList}/>    
+        <PrivateRoute path="/admin/exercises" exact component={ExercisesList}/> 
+        <PrivateRoute path="/admin/users" exact component={UsersList}/>
+        {!isLogged && (!isSignUpForm ? <Login signUp={setIsSignUpForm}/> : <Signup/>)}           
     </div>
   );
 

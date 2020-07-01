@@ -12,6 +12,11 @@ html, body {
   width: 100%;
 }
 
+a {
+  color: initial;
+text-decoration: none;
+}
+
 label {
   text-align: left;
 }
