@@ -1,49 +1,46 @@
-.content.admin li.newExercise {
-    flex-direction: column;
-    align-items: flex-end;
-    border: 2px solid var(--main-color);
-    padding: 10px;
-    height: 119px;
-    width: auto;
+.content.admin > div.exercisesList > div.newExercise {
+    height: calc(100% - 160px);
+    width: 100%;
+    position: absolute;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: grey;
+    margin-top: -20px;
+    background-color: rgba(101, 101, 101, 0.7);
+    z-index: 99;
 }
 
-.content.admin li.newExercise:hover {
+.content.admin > div.exercisesList > div.newExercise > div.form {
     background-color: white;
-}
-
-.content.admin li.newExercise > div.form-group {
-    flex-direction: row;
-    align-items: center;
-    height: 30px;
-}
-
-.content.admin li.newExercise > div.form-group > label {
-    margin-right: 20px;
-    font-size: 15px;
-}
-
-.content.admin li.newExercise > div.form-group > input {
-    margin-right: 10px;
-    width: 165px;
-}
-
-.content.admin .exercisesList > ul > li.newExercise > div.option {
-    position: relative;
-    margin-right: auto;
+    width: 600px;
     margin-left: auto;
-    font-size: 30px;
-    margin-top: 5px;
-
+    margin-right: auto;
+    padding: 40px;
 }
 
-.content.admin .exercisesList > ul > li.newExercise > div.option > i {
+.content.admin > div.exercisesList > div.newExercise > div.form > div.option {
+    margin-top: 50px;
     position: relative;
-    margin-right: 20px;
-    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
 }
 
-.content.admin .exercisesList > ul > li.newExercise > div.option > i:hover {
+.content.admin > div.exercisesList > div.newExercise > div.form > div.option > i {
+    margin-left: 20px;
+    margin-right: 20px;
     cursor: pointer;
-    font-weight: bolder;
-    color: var(--main-color);
+}
+
+.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group {
+    margin-bottom: 20px;
+}
+
+.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox {
+    margin-top: 10px;
+    display: flex;
+}
+
+.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox > div {
+    margin-right: 20px;
 }

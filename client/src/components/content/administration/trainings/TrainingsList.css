@@ -1,5 +1,6 @@
 .content.admin .trainingsList {
     margin-top: 20px;   
+    width: 100%;
 }
 
 .content.admin .trainingsList > ul > li.addTraining {

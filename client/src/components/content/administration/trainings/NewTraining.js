@@ -42,7 +42,7 @@ const NewTraining = (props) => {
     <Fragment>
       {displayNewTraining ?
         <li className="newTraining">      
-          <FormGroup controlId="name" bsSize="large">
+{/*           <FormGroup controlId="name" bsSize="large">
             <ControlLabel>Name</ControlLabel>
             <FormControl
                 type="name"
@@ -57,7 +57,7 @@ const NewTraining = (props) => {
                 value={exercises}
                 onChange={handleSetExercises}
             />
-          </FormGroup>
+          </FormGroup> */}
           <Option back={back} valid={send}/>
         </li> :
         <li key={1} className='addTraining' onClick={setDisplayNewTraining}>

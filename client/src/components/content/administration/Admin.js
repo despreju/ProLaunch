@@ -1,11 +1,8 @@
 import React, {useState, Fragment } from 'react';
 import './Admin.css';
 import Tuile from '../Tuile';
-import UsersList from './users/UsersList';
-import ExercisesList from './exercises/ExercisesList';
-import TrainingsList from './trainings/TrainingsList';
-import {Route, Link} from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
+import {Dropdown} from "react-bootstrap";
 function Admin() {    
 
     const [menuChoice, setMenuChoice] = useState("menu");

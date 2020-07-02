@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import API from "../../utils/API";
 import './Login.css';
 import ErrorLogin from './ErrorLogin'
@@ -42,23 +42,16 @@ const Login = (props) => {
 
   return (         
     <div className="tuile login">      
-      <FormGroup controlId="email">
-        <ControlLabel>Email</ControlLabel>
-        <FormControl
-          autoFocus
-          type="email"
-          value={email}
-          onChange={handleSetEmail}
-        />
-      </FormGroup>
-      <FormGroup controlId="password">
-        <ControlLabel>Password</ControlLabel>
-        <FormControl
-          value={password}
-          onChange={handleSetPassword}
-          type="password"
-        />
-      </FormGroup>
+      <Form>
+        <Form.Group controlId="email">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleSetEmail} />
+        </Form.Group>  
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Enter password" value={password} onChange={handleSetPassword} />
+        </Form.Group>  
+      </Form>
       <div className='button' onClick={send}>Connexion</div>
       {error && <ErrorLogin error={error}/>}            
       <div className="signupButton" onClick={signUp}>Je n'ai pas de compte</div>

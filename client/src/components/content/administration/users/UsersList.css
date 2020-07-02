@@ -1,5 +1,6 @@
 .content.admin .usersList {
     margin-top: 20px;
+    width: 100%;
 }
 
 .content.admin .usersList.list .fas {

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import API from "../../utils/API";
 import './Signup.css';
 import ErrorLogin from './ErrorLogin'
@@ -44,40 +44,22 @@ function Signup() {
 
     return (
       <div className="tuile signup">
-        <FormGroup controlId="email">
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            autoFocus
-            type="email"
-            value={email}
-            onChange={handleSetEmail}
-          />
-        </FormGroup>
-        <FormGroup controlId="name">
-          <ControlLabel>Name</ControlLabel>
-          <FormControl
-            autoFocus
-            type="name"
-            value={name}
-            onChange={handleSetName}
-          />
-        </FormGroup>
-        <FormGroup controlId="password">
-          <ControlLabel>Password</ControlLabel>
-          <FormControl
-            value={password}
-            onChange={handleSetPassword}
-            type="password"
-          />
-        </FormGroup>
-        <FormGroup controlId="cpassword">
-          <ControlLabel>Confirm Password</ControlLabel>
-          <FormControl
-            value={cpassword}
-            onChange={handleSetCpassword}
-            type="password"
-          />
-        </FormGroup>
+        <Form.Group controlId="email">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleSetEmail} />
+        </Form.Group>
+        <Form.Group controlId="email">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="name" placeholder="Enter email" value={name} onChange={handleSetName} />
+        </Form.Group>  
+        <Form.Group controlId="email">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Enter email" value={password} onChange={handleSetPassword} />
+        </Form.Group>  
+        <Form.Group controlId="email">
+          <Form.Label>Confirmation password</Form.Label>
+          <Form.Control type="cpassword" placeholder="Enter email" value={cpassword} onChange={handleSetCpassword} />
+        </Form.Group>      
         <div className='button' onClick={send}>Inscription</div>
         {error && <ErrorLogin error={error}/>}   
       </div>
