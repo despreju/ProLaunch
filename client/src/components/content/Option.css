@@ -1,0 +1,8 @@
+div.option > i {
+    cursor: pointer;
+}
+
+div.option > i:hover {
+    font-weight: bold;
+    color: var(--main-color);
+}

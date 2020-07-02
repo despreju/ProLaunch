@@ -7,6 +7,7 @@ import TrainingItem from './TrainingItem.js';
 const TrainingsList = (props) => {
 
     const [data, setData] = useState([]);
+    const [displayNewTraining, setDisplayNewTraining] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,12 +21,17 @@ const TrainingsList = (props) => {
         data.push(obj);  
         setData([]); 
         setData(data);         
+        setDisplayNewTraining();
     }
 
     return (                       
-        <div className='list trainingsList'>                 
+        <div className='list trainingsList'>  
+        {displayNewTraining && <NewTraining update={updateData} back={setDisplayNewTraining}/>}                                    
             <ul> 
-                <NewTraining update={updateData}/>                
+                <li key={1} className='addTraining' onClick={setDisplayNewTraining}>
+                    <i className="fas fa-plus"></i>
+                    Ajouter un entrainement
+                </li>              
                 {data.map((training) =>                     
                     <TrainingItem key={training.id} name={training.name} exercises={training.exercises} />)          
                 }

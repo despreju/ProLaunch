@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
-import {DropdownButton, Dropdown } from "react-bootstrap";
 import API from "../../../../utils/API.js";
 import './NewExercise.css';
 import Option from '../../Option.js';
@@ -43,8 +42,9 @@ const NewExercise = (props) => {
   }
 
   return (      
-        <div className="newExercise">
-          <div className="form">      
+        <div className="newExercise">         
+          <div className="form">    
+            <h2>Création d'un exercice</h2>  
             <Form>
               <Form.Group controlId="name">
                 <Form.Label>Name</Form.Label>

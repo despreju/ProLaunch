@@ -1,5 +1,6 @@
 import React from 'react'
 import API from "../../utils/API.js";
+import './Option.css';
 
 const Option = (props) => {
 

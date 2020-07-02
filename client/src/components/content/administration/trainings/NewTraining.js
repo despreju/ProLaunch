@@ -1,5 +1,5 @@
 import React, {useState, Fragment} from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import Form from "react-bootstrap/Form";
 import API from "../../../../utils/API";
 import './NewTraining.css';
 import Option from '../../Option.js';
@@ -9,7 +9,6 @@ const NewTraining = (props) => {
   //State
   const [name, setName] = useState("");
   const [exercises, setExercises] = useState("");
-  const [displayNewTraining, setDisplayNewTraining] = useState(false);
 
   //Handle
   const handleSetName = (event) => {
@@ -27,7 +26,6 @@ const NewTraining = (props) => {
       const { data } = await API.createTraining({ name, exercises });
       const newTraining = {id:data.id, name:data.name};
       props.update(newTraining);
-      setDisplayNewTraining(!{displayNewTraining});
     } catch (error) {
       console.error(error);
     }
@@ -35,37 +33,22 @@ const NewTraining = (props) => {
 
   const back = () => {
     setName('');
-    setDisplayNewTraining();
+    props.back();
   }
 
   return (         
-    <Fragment>
-      {displayNewTraining ?
-        <li className="newTraining">      
-{/*           <FormGroup controlId="name" bsSize="large">
-            <ControlLabel>Name</ControlLabel>
-            <FormControl
-                type="name"
-                value={name}
-                onChange={handleSetName}
-            />
-          </FormGroup>
-          <FormGroup controlId="exercises" bsSize="large">
-            <ControlLabel>Exercises</ControlLabel>
-            <FormControl
-                type="exercises"
-                value={exercises}
-                onChange={handleSetExercises}
-            />
-          </FormGroup> */}
-          <Option back={back} valid={send}/>
-        </li> :
-        <li key={1} className='addTraining' onClick={setDisplayNewTraining}>
-          <i className="fas fa-plus"></i>
-          Ajouter un entrainement
-        </li>
-      }
-    </Fragment>
+    <div className="newTraining">         
+      <div className="form">    
+        <h2>Création d'un entrainement</h2>  
+        <Form>
+          <Form.Group controlId="name">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="name" placeholder="Enter name" value={name} onChange={handleSetName} />
+          </Form.Group>  
+        </Form>
+        <Option back={back} valid={send}/>
+      </div>
+    </div>      
   );
 
 }

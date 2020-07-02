@@ -18,6 +18,11 @@
     padding: 40px;
 }
 
+.content.admin > div.exercisesList > div.newExercise > div.form > h2{
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
 .content.admin > div.exercisesList > div.newExercise > div.form > div.option {
     margin-top: 50px;
     position: relative;
@@ -29,7 +34,6 @@
 .content.admin > div.exercisesList > div.newExercise > div.form > div.option > i {
     margin-left: 20px;
     margin-right: 20px;
-    cursor: pointer;
 }
 
 .content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group {
