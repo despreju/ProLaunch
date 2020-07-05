@@ -12,10 +12,7 @@ const TrainingItem = (props) => {
             <li className="item" key={props.id}>
                 <i className="fas fa-running"></i>
                 <div className='infos'>
-                    <p className='name'>{props.name}</p>
-                    {props.exercises.map((exercise) =>                     
-                        <p className='exercices'>{exercise.name}</p>)        
-                    }
+                    <p className='name'>{props.name}</p>            
                 </div>
             </li>}
         </Fragment>

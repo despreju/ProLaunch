@@ -37,23 +37,6 @@ async function createTraining(req, res) {
       }  
     }  
   }
-  
-  /* const exercisesList = [];
-  const exercisesNameList = exercises.split(',');
-  for (item in exercisesNameList) {
-    try {    
-      const name = exercisesNameList[item];
-      const exercise = await Exercise.findOne({name});
-      if (exercise === null) {
-        return res.status(400).json({
-          text: "L'exercice " + name + " n'existe pas"
-        });
-      }
-      exercisesList.push(exercise);
-    } catch (error) {
-      return res.status(500).json({ error });
-    }    
-  } */
   const training = {
     name,
     chapters
@@ -77,7 +60,7 @@ async function getAllTrainings(req, res) {
     const rep = (await Training.find());
     const trainingsList = [];
     //Pour chaque entrainement
-    for (const element of rep) {
+/*     for (const element of rep) {
       const exercises = [];
       //Pour chaque exercice de chaque entrainement
       for (const exercise of element.exercises) {
@@ -86,9 +69,9 @@ async function getAllTrainings(req, res) {
         exercises.push(exe);
       };
       trainingsList.push({"id":element.id, "name":element.name, "exercises":exercises})
-    };
+    }; */
     return res.status(200).json(
-      trainingsList
+      rep
     );
   } catch (error) {
     return res.status(500).json({

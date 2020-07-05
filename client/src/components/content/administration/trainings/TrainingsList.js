@@ -33,7 +33,7 @@ const TrainingsList = (props) => {
                     Ajouter un entrainement
                 </li>              
                 {data.map((training) =>                     
-                    <TrainingItem key={training.id} name={training.name} exercises={training.exercises} />)          
+                    <TrainingItem key={training.id} name={training.name}/>)          
                 }
             </ul>
         </div>
