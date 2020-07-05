@@ -2,8 +2,8 @@ const Training = require("../../schema/schemaTraining");
 const Exercise = require("../../schema/schemaExercise");
 
 async function createTraining(req, res) {
-  const {name, exercises} = req.body;
-  if (!name || !exercises) {
+  const {name, chapters} = req.body;
+  if (!name || !chapters) {
     return res.status(400).json({
       text: "Requête invalide"
     });
@@ -22,7 +22,23 @@ async function createTraining(req, res) {
     return res.status(500).json({ error });
   }
   //On parcourt les exercices, on vérifie qu'ils existent et on les ajoutes à la liste
-  const exercisesList = [];
+  for (iteratorChapter in chapters) {
+    for (iteratorSession in chapters[iteratorChapter].sessions) {
+      try {    
+        const exercise = await Exercise.findOne({"name" : chapters[iteratorChapter].sessions[iteratorSession].exercise});
+        if (exercise === null) {
+          return res.status(400).json({
+            text: "L'exercice " + name + " n'existe pas"
+          });
+        }
+        chapters[iteratorChapter].sessions[iteratorSession].exercise = exercise;
+      } catch (error) {
+        return res.status(500).json({ error });
+      }  
+    }  
+  }
+  
+  /* const exercisesList = [];
   const exercisesNameList = exercises.split(',');
   for (item in exercisesNameList) {
     try {    
@@ -37,10 +53,10 @@ async function createTraining(req, res) {
     } catch (error) {
       return res.status(500).json({ error });
     }    
-  }
+  } */
   const training = {
     name,
-    exercisesList
+    chapters
   };
   try {
     const trainingData = new Training(training);
@@ -49,7 +65,7 @@ async function createTraining(req, res) {
       text: "Succès",
       id: trainingObject.id,
       name: name,
-      exercises: exercisesList,
+      chapters: chapters,
     });
   } catch (error) {
     res.status(500).json({ error });
