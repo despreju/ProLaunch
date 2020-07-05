@@ -1,16 +1,16 @@
-.content.admin .trainingsList > ul > li.item > div.option {
+.content .trainingsList > ul > li.item > div.option {
     position: absolute;
     right: 0;
     margin-right: -72px;    
     transition-duration: 0.15s;
 }
 
-.content.admin .trainingsList > ul > li.item:hover > div.option {
+.content .trainingsList > ul > li.item:hover > div.option {
     margin-right: 0px;    
     transition-duration: 0.15s;
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i {
+.content .trainingsList > ul > li.item > div.option > i {
     color: black;
     position: absolute;  
     right: 0;
@@ -18,7 +18,7 @@
     padding: 25px;      
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i:hover {
+.content .trainingsList > ul > li.item > div.option > i:hover {
     position: absolute;  
     right: 0;
     border-radius: 0;
@@ -26,26 +26,26 @@
     cursor: pointer;    
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i.fa-edit {    
+.content .trainingsList > ul > li.item > div.option > i.fa-edit {    
     top: 0;
     padding: 22px;
     background-color: white;
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i.fa-trash-alt { 
+.content .trainingsList > ul > li.item > div.option > i.fa-trash-alt { 
     bottom: 0;   
     padding: 25px;
     color: red;
     background-color: white;
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i.fa-edit:hover {    
+.content .trainingsList > ul > li.item > div.option > i.fa-edit:hover {    
     border-left: 1px solid grey;
     border-top: 1px solid grey;
     padding-top: 21px;
 }
 
-.content.admin .trainingsList > ul > li.item > div.option > i.fa-trash-alt:hover { 
+.content .trainingsList > ul > li.item > div.option > i.fa-trash-alt:hover { 
     border-left: 1px solid grey;
     border-bottom: 1px solid grey;
     padding-bottom: 24px;

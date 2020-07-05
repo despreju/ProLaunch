@@ -11,18 +11,15 @@ import ExercisesList from './administration/exercises/ExercisesList';
 import TrainingsList from './administration/trainings/TrainingsList';
 import { PrivateRoute } from "../PrivateRoute.js";
 import {CredentialContext} from '../../contexts/CredentialContext';
-import {MenuContext} from '../../contexts/MenuContext';
-
 
 function Content() {
 
   const {isLogged} = useContext(CredentialContext);
-  const {menuItemSelected} = useContext(MenuContext);
   
   const [isSignUpForm, setIsSignUpForm] = useState(false);
 
   return (    
-    <div className={`content ${menuItemSelected}`}>        
+    <div className={`content`}>        
         <PrivateRoute path="/training" exact component={Training}/>    
         <PrivateRoute path="/statistics" exact component={Statistics}/> 
         <PrivateRoute path="/admin" exact component={Admin}/>

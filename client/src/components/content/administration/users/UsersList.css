@@ -1,8 +1,7 @@
-.content.admin .usersList {
-    margin-top: 20px;
+.content .usersList {
     width: 100%;
 }
 
-.content.admin .usersList.list .fas {
+.content .usersList.list .fas {
     padding: 14px 15px 14px 15px;
 }

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Route, Switch } from "react-router-dom";
-import { PrivateRoute } from "./components/PrivateRoute.js";
 import './App.css';
 
 //Components
@@ -11,8 +9,6 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 //Contexts
 import CredentialContextProvider from './contexts/CredentialContext';
-import MenuContextProvider from './contexts/MenuContext';
-
 
 function App() {
 
@@ -22,12 +18,10 @@ function App() {
     <div className='main'>      
       <CredentialContextProvider>
         <Header/>
-        <MenuContextProvider>
           <Router>
             <Menu setMenuSelected={setMenuSelected}/>
             <Content menuSelected={menuSelected}/>
           </Router>
-        </MenuContextProvider>
       </CredentialContextProvider>
     </div>
   );
