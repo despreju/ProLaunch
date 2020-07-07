@@ -28,10 +28,10 @@ const TrainingsList = (props) => {
         <div className='list trainingsList'>  
         {displayNewTraining && <NewTraining update={updateData} back={setDisplayNewTraining}/>}                                    
             <ul> 
-                <li key={1} className='addTraining' onClick={setDisplayNewTraining}>
+                {props.user === "admin" && <li key={1} className='addTraining' onClick={setDisplayNewTraining}>
                     <i className="fas fa-plus"></i>
                     Ajouter un entrainement
-                </li>              
+                </li>}              
                 {data.map((training) =>                     
                     <TrainingItem key={training.id} name={training.name}/>)          
                 }

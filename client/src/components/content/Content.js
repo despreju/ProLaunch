@@ -20,10 +20,10 @@ function Content() {
 
   return (    
     <div className={`content`}>        
-        <PrivateRoute path="/training" exact component={Training}/>    
+        <PrivateRoute path="/training" exact component={() => <TrainingsList user="user"/>}/>    
         <PrivateRoute path="/statistics" exact component={Statistics}/> 
         <PrivateRoute path="/admin" exact component={Admin}/>
-        <PrivateRoute path="/admin/trainings" exact component={TrainingsList}/>    
+        <PrivateRoute path="/admin/trainings" exact component={() => <TrainingsList user="admin"/>}/>    
         <PrivateRoute path="/admin/exercises" exact component={ExercisesList}/> 
         <PrivateRoute path="/admin/users" exact component={UsersList}/>
         {!isLogged && (!isSignUpForm ? <Login signUp={setIsSignUpForm}/> : <Signup/>)}           
