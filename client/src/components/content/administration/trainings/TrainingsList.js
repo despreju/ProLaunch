@@ -8,17 +8,12 @@ const TrainingsList = (props) => {
 
     const [data, setData] = useState([]);
     const [dataToLoad, setDataToLoad] = useState([]);
-    const [displayNewTraining, setDisplayNewTraining] = useState(false);
     const [displayTraining, setDisplayTraining] = useState();
-    const [, updateState] = React.useState();
-    const forceUpdate = React.useCallback(() => updateState({}), []);
-
     
     //Handle
-    const handleSetDisplayTraining = (training) => {
+    const handleSetDisplayTraining = (obj) => {
         setDisplayTraining(true);
-        setDataToLoad(training);
-        console.log("chapters", training.chapters);
+        (obj.length === 0) ? setDataToLoad(obj): setDataToLoad(obj.chapters);
     }  
 
     useEffect(() => {
@@ -35,16 +30,15 @@ const TrainingsList = (props) => {
         temp = temp.concat(data);
         temp.push(obj);
         setData(temp);
-        setDisplayNewTraining();
+        setDisplayTraining();
     }
 
     return (                       
         <div className='list trainingsList'>  
-        {displayNewTraining && <NewTraining update={updateData} back={setDisplayNewTraining} data={[]}/>}
-        {displayTraining && <NewTraining update={updateData} back={() => setDisplayTraining(false)} data={dataToLoad.chapters}/>}                              
+        {displayTraining && <NewTraining update={updateData} back={setDisplayTraining} data={dataToLoad}/>}                              
             <ul> 
                 {props.user === "admin" && 
-                <li key="1" className='addTraining' onClick={setDisplayNewTraining}>
+                <li key="1" className='addTraining' onClick={() => handleSetDisplayTraining([])}>
                     <i className="fas fa-plus"></i>
                     Ajouter un entrainement
                 </li>}              
