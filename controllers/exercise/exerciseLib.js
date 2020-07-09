@@ -62,10 +62,8 @@ async function deleteExercise(req, res) {
 async function getAllExercises(req, res) {  
   try {
     const rep = (await Exercise.find());
-    const exercisesList = [];
-    rep.forEach(element => exercisesList.push({"id":element.id, "name":element.name, "difficulty":element.difficulty}));
     return res.status(200).json(
-      exercisesList
+      rep
     );
   } catch (error) {
     return res.status(500).json({

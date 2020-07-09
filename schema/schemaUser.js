@@ -19,6 +19,9 @@ const userSchema = mongoose.Schema(
     password: {
       type: String,
       required: true
+    },
+    level: {
+      type: String
     }
   },
   { timestamps: { createdAt: "created_at" } }

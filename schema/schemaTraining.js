@@ -14,8 +14,8 @@ const trainingSchema = mongoose.Schema(
           String
         },
         sessions : [{
-            exercice : {
-              type: mongoose.Types.ObjectId,
+            exercise : {
+              type: mongoose.Schema.Types.ObjectId,
               ref: 'Exercise'
             },
             repetitions : {
@@ -31,22 +31,3 @@ const trainingSchema = mongoose.Schema(
 );
 
 module.exports = mongoose.model("Training", trainingSchema);
-
-
-
-  /*   const trainingSchema = mongoose.Schema(
-      {
-        name: {
-            type: String,
-            lowercase: true,
-            trim: true,
-            unique: true,
-            required: true
-        },
-        exercises : [{
-          type: mongoose.Types.ObjectId,
-          ref: 'Exercise'
-        }]
-      },
-      { timestamps: { createdAt: "created_at" } }
-    ); */

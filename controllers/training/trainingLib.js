@@ -23,9 +23,11 @@ async function createTraining(req, res) {
   }
   //On parcourt les exercices, on vérifie qu'ils existent et on les ajoutes à la liste
   for (iteratorChapter in chapters) {
+    delete chapters[iteratorChapter]._id;
     for (iteratorSession in chapters[iteratorChapter].sessions) {
+      delete chapters[iteratorChapter].sessions[iteratorSession]._id;
       try {    
-        const exercise = await Exercise.findOne({"name" : chapters[iteratorChapter].sessions[iteratorSession].exercise});
+        const exercise = await Exercise.findOne({"name" : chapters[iteratorChapter].sessions[iteratorSession].exercise.name});
         if (exercise === null) {
           return res.status(400).json({
             text: "L'exercice " + name + " n'existe pas"
@@ -46,30 +48,46 @@ async function createTraining(req, res) {
     const trainingObject = await trainingData.save();
     return res.status(200).json({
       text: "Succès",
-      id: trainingObject.id,
-      name: name,
-      chapters: chapters,
+      _id: trainingObject.id,
+      name: trainingObject.name,
+      chapters: trainingObject.chapters,
     });
   } catch (error) {
     res.status(500).json({ error });
   }
 }
 
+async function getTrainingByName(req, res) {  
+  const {name} = req.body;
+  if (!name) {
+    return res.status(400).json({
+      text: "Requête invalide"
+    });
+  }
+  try {
+    const rep = await Training.findOne({name}).populate({ 
+                                                  path: 'chapters.sessions.exercise',
+                                                  model: 'Exercise',
+                                                  select : '-__v'
+                                              })
+    return res.status(200).json(
+      rep
+    );
+  } catch (error) {
+    return res.status(500).json({
+      error
+    });
+  }
+}
+
 async function getAllTrainings(req, res) {  
   try {
-    const rep = (await Training.find());
-    const trainingsList = [];
-    //Pour chaque entrainement
-/*     for (const element of rep) {
-      const exercises = [];
-      //Pour chaque exercice de chaque entrainement
-      for (const exercise of element.exercises) {
-        const id = exercise.toString();
-        const exe = await Exercise.findById(id);
-        exercises.push(exe);
-      };
-      trainingsList.push({"id":element.id, "name":element.name, "exercises":exercises})
-    }; */
+/*     const rep = await Training.find().populate('exercise'); */
+    const rep = await Training.find().populate({ 
+                                                  path: 'chapters.sessions.exercise',
+                                                  model: 'Exercise',
+                                                  select : '-__v'
+                                              })
     return res.status(200).json(
       rep
     );
@@ -82,4 +100,5 @@ async function getAllTrainings(req, res) {
 
 //On exporte nos fonctions
 exports.createTraining = createTraining;
+exports.getTrainingByName = getTrainingByName;
 exports.getAllTrainings = getAllTrainings;

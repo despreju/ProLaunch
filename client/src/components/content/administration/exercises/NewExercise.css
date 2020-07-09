@@ -1,4 +1,4 @@
-.content.admin > div.exercisesList > div.newExercise {
+.content > div.exercisesList > div.newExercise {
     height: calc(100% - 160px);
     width: 100%;
     position: absolute;
@@ -10,7 +10,7 @@
     z-index: 99;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form {
+.content > div.exercisesList > div.newExercise > div.form {
     background-color: white;
     width: 600px;
     margin-left: auto;
@@ -18,12 +18,12 @@
     padding: 40px;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form > h2{
+.content > div.exercisesList > div.newExercise > div.form > h2{
     text-align: center;
     margin-top: -10px;
     margin-bottom: 30px;
 }
-.content.admin > div.exercisesList > div.newExercise > div.form > div.option {
+.content > div.exercisesList > div.newExercise > div.form > div.option {
     margin-top: 50px;
     position: relative;
     display: flex;
@@ -31,20 +31,20 @@
     font-size: 30px;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form > div.option > i {
+.content > div.exercisesList > div.newExercise > div.form > div.option > i {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group {
+.content > div.exercisesList > div.newExercise > div.form > form > div.form-group {
     margin-bottom: 20px;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox {
+.content > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox {
     margin-top: 10px;
     display: flex;
 }
 
-.content.admin > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox > div {
+.content > div.exercisesList > div.newExercise > div.form > form > div.form-group > div.checkbox > div {
     margin-right: 20px;
 }

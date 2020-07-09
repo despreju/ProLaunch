@@ -5,10 +5,16 @@ import './Option.css';
 const Option = (props) => {
 
     const deleteThis = async () => {     
-        console.log('[delete]', props.itemType, props.itemName);   
-        const name = props.itemName;
+        console.log('[delete]', props.itemType, props.itemName);           
         try {
-            if (props.itemType === "exercise") {const { data } = await API.deleteExercise({name});}
+            if (props.itemType === "exercise") {
+                const name = props.itemName;
+                const { data } = await API.deleteExercise({name});
+            } 
+            if (props.itemType === "user") {
+                const email = props.itemName;
+                const { data } = await API.deleteUser({email});
+            }
             props.delete(true);  
         } catch (error) {
             console.log(error);

@@ -4,18 +4,16 @@ import API from "../../../../utils/API";
 import './NewTraining.css';
 import Option from '../../Option.js';
 import Repetitions from './Repetitions.js';
-import ExercicesList from '../exercises/ExercisesList.js';
 
 const NewTraining = (props) => {
 
   useEffect(() => {
-    console.log('rechargement');
   });
 
   //State
   const [name, setName] = useState("");
   const [exercises, setExercises] = useState([]);
-  const [chapters, setChapters] = useState([]);
+  const [chapters, setChapters] = useState(props.data);
   const [displayChooseExercise, setDisplayChooseExercise] = useState();
 
   //Handle
@@ -31,7 +29,7 @@ const NewTraining = (props) => {
 
   //structures données chapitre
   const chapterObject =  {
-                            "id" : chapters.length,
+                            "_id" : chapters.length,
                             "name" : "chapter" + chapters.length,
                             "sessions" : [],
                             "repetitions" : 1
@@ -39,7 +37,10 @@ const NewTraining = (props) => {
 
   //structures données chapitre
   const sessionObject = { 
-                          "exercise" : "",
+                          "exercise" : {
+                            "name" : "",
+                            "_id": ""
+                          },
                           "repetitions" : 1
                         };                          
 
@@ -47,10 +48,10 @@ const NewTraining = (props) => {
   const send = async () => {    
     if (!{name} || {name}.length === 0) return; 
     if (!{chapters} || {chapters}.length === 0) return; 
-    try {  
+    try {              
       const { data } = await API.createTraining({ name, chapters });
-      const newTraining = {id:data.id, name:data.name};
-      props.update(newTraining);
+      console.log("new training",data);    
+      props.update(data);
     } catch (error) {
       console.error(error);
     }
@@ -76,13 +77,18 @@ const NewTraining = (props) => {
   }
 
   const insertExercise = (args) => {  
-    sessionObject.exercise=args[1];    
-    sessionObject.id=chapters[args[0]].sessions.length;    
+    chapters.find(obj => {
+      if (obj._id === args[0]) {
+        sessionObject.exercise.name=args[1];    
+        sessionObject._id = obj.sessions.length; 
+        obj.sessions.push(sessionObject);
+      }      
+    });
     let temp = [];
     temp = temp.concat(chapters);
-    temp[args[0]].sessions.push(sessionObject);
     setChapters(temp);  
     setDisplayChooseExercise();
+    console.log(displayChooseExercise);
   }
   
   const minusReps = (args) => {  
@@ -110,28 +116,28 @@ const NewTraining = (props) => {
           </Form.Group>   
 
           {chapters.map((chapter) =>                     
-            <div key={chapter.id} className="chapter">
+            <div key={chapter._id} className="chapter">
               <div className="part">
                 {chapter.sessions.map((session) => 
                   <div className="session">
-                    <div key={session.id} className="exercise">{session.exercise}</div>
-                    <Repetitions rep={session.repetitions} plus={() => plusReps([chapter.id,session.id])} minus={() => minusReps([chapter.id,session.id])}/>
+                    <div key={session._id} className="exercise">{session.exercise.name}</div>
+                    <Repetitions rep={session.repetitions} plus={() => plusReps([chapter._id,session._id])} minus={() => minusReps([chapter._id,session._id])}/>
                   </div>                    
                 )}
-                {!(displayChooseExercise === chapter.id) ? 
-                  <div className="add addSession" onClick={() => chooseExercise(chapter.id)}>
+                {!(displayChooseExercise === chapter._id) ? 
+                  <div className="add addSession" onClick={() => chooseExercise(chapter._id)}>
                     <i className="fas fa-plus"/>Ajouter un exercice
                   </div> :
                   <div className="chooseExercise">
                     {exercises.map((exercise) => 
-                      <li key={exercise.id} className="exercise" onClick={() => insertExercise([chapter.id, exercise.name])}>
+                      <li key={exercise._id} className="exercise" onClick={() => insertExercise([chapter._id, exercise.name])}>
                         {exercise.name}
                       </li>                    
                     )}
                   </div>
                 }  
               </div>
-              <Repetitions rep={chapter.repetitions} plus={() => plusReps([chapter.id])} minus={() => minusReps([chapter.id])}/>
+              <Repetitions rep={chapter.repetitions} plus={() => plusReps([chapter._id])} minus={() => minusReps([chapter._id])}/>
             </div>             
           )}
           <div className="add addChapter" onClick={addChapter}>
