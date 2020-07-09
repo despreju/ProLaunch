@@ -68,6 +68,7 @@ async function login(req, res) {
       token: findUser.getToken(),
       email: findUser.email,
       name: findUser.name,
+      level: findUser.level,
       text: "Authentification réussie"
     });
   } catch (error) {

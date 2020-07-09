@@ -7,6 +7,8 @@ import {Link} from 'react-router-dom';
 function Menu() {
 
   const {isLogged} = useContext(CredentialContext);
+  const {profile} = useContext(CredentialContext);
+
   const [isSelected, setIsSelected] = useState("");
 
   return (
@@ -16,12 +18,15 @@ function Menu() {
           <Link to="/training">   
             <MenuItem logo={'fas fa-dumbbell'} class={'training'} action={setIsSelected} isSelected={isSelected} title={'Entrainement'}/>
           </Link>
-          <Link to="/statistics">  
-            <MenuItem logo={'fas fa-chart-bar'} class={'statistics'} action={setIsSelected} isSelected={isSelected} title={'Statistiques'}/>
-          </Link>
-          <Link to="/admin">  
-            <MenuItem logo={'fas fa-users-cog'} class={'admin'} action={setIsSelected} isSelected={isSelected} title={'Administration'}/>
-          </Link>
+          {profile.level === "admin" &&
+            <Fragment>
+              <Link to="/statistics">  
+                <MenuItem logo={'fas fa-chart-bar'} class={'statistics'} action={setIsSelected} isSelected={isSelected} title={'Statistiques'}/>
+              </Link>
+              <Link to="/admin">  
+                <MenuItem logo={'fas fa-users-cog'} class={'admin'} action={setIsSelected} isSelected={isSelected} title={'Administration'}/>
+            </Link>
+          </Fragment> }
         </Fragment>
       }
     </div>

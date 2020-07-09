@@ -8,7 +8,8 @@ const CredentialContextProvider = (props) => {
     const [isLogged, {}] = useState(API.isAuth());
     const [profile, {}] = useState({
         name: API.getProfile().name,
-        email : API.getProfile().email
+        email : API.getProfile().email,
+        level : API.getProfile().level       
     });
 
     return (

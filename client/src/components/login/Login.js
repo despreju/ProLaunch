@@ -26,7 +26,7 @@ const Login = (props) => {
       if (!email || email.length === 0) throw new Error('Opss!');
       if (!password || password.length === 0) throw new Error('Opss!');
       const { data } = await API.login(email, password);
-      const profile = {email:data.email, name:data.name};
+      const profile = {email:data.email, name:data.name, level:data.level};
       localStorage.setItem("token", data.token);
       localStorage.setItem("profile", JSON.stringify(profile));
       window.location = "/";

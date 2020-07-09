@@ -22,7 +22,7 @@ export default {
 
   getProfile: function() {
     const profile = JSON.parse(localStorage.getItem("profile"));
-    return (profile != null ?  profile : {profile : {email : null, name : null}})
+    return (profile != null ?  profile : {profile : {email : null, name : null, level : null}})
   },
 
   logout: function() {
