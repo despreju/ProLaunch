@@ -7,6 +7,14 @@ import UserItem from './UserItem.js';
 const UsersList = (props) => {
 
     const [data, setData] = useState([]);
+    const [displayUser, setDisplayUser] = useState();
+    const [userData, setDataToLoad] = useState([]);
+
+    //Handle
+    const handleSetDisplayUser = (obj) => {
+        setDataToLoad(obj);
+        setDisplayUser(true);
+    }  
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,10 +26,17 @@ const UsersList = (props) => {
 
     return (     
         <div className='list usersList'>  
+        {displayUser && <UserItem back={setDisplayUser} data={userData}/>}                              
             <ul>    
-                {data.map((user) =>                                     
-                    <UserItem key={user.id} name={user.name} email={user.email}/>)          
-                }
+                {data.map((user) =>
+                    <li className="item" key={user.id} onClick={() => handleSetDisplayUser(user)}>
+                    <i className="fas fa-user"></i>
+                    <div className='infos'>
+                        <p className='name'>{user.name}</p>
+                        <p className='email'>{user.email}</p>
+                    </div>
+                </li>
+                )}
             </ul>
         </div>
     )

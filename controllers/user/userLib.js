@@ -82,7 +82,7 @@ async function getAllUsers(req, res) {
   try {
     const rep = (await User.find());
     const usersList = [];
-    rep.forEach(element => usersList.push({"id":element.id, "name":element.name, "email":element.email}));
+    rep.forEach(element => usersList.push({id:element.id, name:element.name, email:element.email, level:element.level}));
     return res.status(200).json(
       usersList
     );
@@ -113,30 +113,19 @@ async function deleteUser(req, res) {
 }
 
 async function setAdmin(req, res) {  
-  const { password } = req.body;
-  if (!email) {
-    //Le cas où l'email ou bien le password ne serait pas soumit ou nul
+  const { email, level } = req.body;
+  if (!email || !level) {
+    //Le cas où l'email ou bien le level ne serait pas soumit ou nul
     return res.status(400).json({
       text: "Requête invalide"
     });
   }
-  try {
-    // On check si l'utilisateur existe en base
-    const findUser = await User.findOne({ email });
-    if (!findUser)
-      return res.status(401).json({
-        text: "L'utilisateur n'existe pas"
-      });  
-      findUser.level = "admin";
-      User.update(findUser);
-    return res.status(200).json(
-      usersList
-    );
-  } catch (error) {
-    return res.status(500).json({
-      error
-    });
-  }
+  User.updateOne({ email: email }, {level : level}, 
+  function(err, doc){ 
+      if (err) return res.send(500, { err });       
+      return res.send(200, { doc });
+  });
+ 
 }
 
 //On exporte nos deux fonctions

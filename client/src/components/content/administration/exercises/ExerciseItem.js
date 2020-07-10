@@ -15,7 +15,7 @@ const ExerciseItem = (props) => {
                     <p className='name'>{props.name}</p>
                     <p className='difficulty'>{props.difficulty}</p>
                 </div>
-                <Option itemType="exercise" itemId={props.id} itemName={props.name} delete={setIsRemoved} edit={true}/>
+                <Option itemType="exercise" itemId={props.id} itemName={props.name} remove={setIsRemoved} edit={true}/>
             </li>}
         </Fragment>
     )
