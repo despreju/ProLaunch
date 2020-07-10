@@ -1,8 +1,35 @@
-div.option > i {
+div.option {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    min-height: 50px;
+}
+
+div.option > div {    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    align-items: center;    
+    transition-duration: 0.2s;
+}
+
+div.option > div:hover {
+    background-color: lightgray;
     cursor: pointer;
 }
 
-div.option > i:hover {
-    font-weight: bold;
-    color: var(--main-color);
+div.option > div > i {    
+    font-size: 20px;
+    padding-right: 15px;
 }
+
+div.option > div > p {    
+    display: none;
+    font-size: 15px;
+}
+
+div.option > div:hover > p {    
+    display: initial;
+}
+

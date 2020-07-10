@@ -30,13 +30,13 @@ const Option = (props) => {
     };
 
     return (
-        <div className="option">            
-            {props.edit && <div><i className="fas fa-edit" onClick={edit}></i></div>}
-            {props.remove && <div><i className="fas fa-trash-alt" onClick={remove}></i></div>}
-            {props.valid && <div><i className="far fa-check-circle" onClick={valid}></i></div>}
-            {props.back && <div><i className="far fa-times-circle" onClick={back}></i></div>}
-            {props.setAdmin && <div><i className="fas fa-chevron-circle-up" onClick={props.setAdmin}></i>Définir comme administrateur</div>}
-            {props.setUser && <div><i className="fas fa-chevron-circle-down" onClick={props.setUser}></i>Définir comme utilisateur</div>}
+        <div className="option">
+            {props.back && <div onClick={back}><i className="fas fa-long-arrow-alt-left"></i><p>Retour</p></div>}            
+            {props.edit && <div onClick={edit}><i className="fas fa-edit"></i></div>}
+            {props.remove && <div onClick={remove}><i className="fas fa-trash-alt"></i><p>Supprimer</p></div>}
+            {props.valid && <div onClick={valid}><i className="far fa-check-circle"></i><p>Valider</p></div>}            
+            {props.setAdmin && <div onClick={props.setAdmin}><i className="fas fa-chevron-circle-up"></i><p>Définir comme administrateur</p></div>}
+            {props.setUser && <div onClick={props.setUser}><i className="fas fa-chevron-circle-down"></i><p>Définir comme utilisateur</p></div>}
         </div>
     )
 }

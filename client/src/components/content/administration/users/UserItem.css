@@ -1,4 +1,4 @@
-.content > div.usersList > div.item {
+.content > div.usersList > div.backgroundItem {
     height: calc(100% - 160px);
     width: 100%;
     position: absolute;
@@ -10,7 +10,7 @@
     z-index: 99;
 }
 
-.content > div.usersList > div.item > div.userItem {
+.content > div.usersList > div.backgroundItem > div.userItem {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -18,32 +18,8 @@
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0x 40px 40px 40px ;
 }
 
-.content > div.usersList > div.item > div.userItem > i {
+.content > div.usersList > div.backgroundItem > div.userItem > i {
     font-size: 50px ;
-}
-
-.content > div.usersList > div.item > div.userItem > div.option {
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.content > div.usersList > div.item > div.userItem > div.option > div {    
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid black;
-    align-items: center;
-}
-
-.content > div.usersList > div.item > div.userItem > div.option > div > i {    
-    font-size: 20px;
-}
-
-.content > div.usersList > div.item > div.userItem > div.option > div:hover {
-    background-color: lightgray;
-    cursor: pointer;
 }

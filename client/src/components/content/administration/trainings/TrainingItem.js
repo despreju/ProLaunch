@@ -8,13 +8,7 @@ const TrainingItem = (props) => {
 
     return ( 
         <Fragment>
-            {!isRemoved &&       
-            <li className="item" key={props.id} onClick={props.onClick}>
-                <i className="fas fa-running"></i>
-                <div className='infos'>
-                    <p className='name'>{props.name}</p>            
-                </div>
-            </li>}
+
         </Fragment>
     )
 

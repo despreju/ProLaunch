@@ -42,9 +42,14 @@ const TrainingsList = (props) => {
                     <i className="fas fa-plus"></i>
                     Ajouter un entrainement
                 </li>}              
-                {data.map((training) =>                     
-                    <TrainingItem key={training.id} name={training.name} data={training} onClick={() => handleSetDisplayTraining(training)}/>)          
-                }
+                {data.map((training) =>       
+                    <li className="item" key={training.id} onClick={() => handleSetDisplayTraining(training)}>
+                        <i className="fas fa-running"></i>
+                        <div className='infos'>
+                            <p className='name'>{training.name}</p>            
+                        </div>
+                    </li>                
+                )}
             </ul>
         </div>
     )

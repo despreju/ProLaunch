@@ -7,13 +7,13 @@ import UserItem from './UserItem.js';
 const UsersList = (props) => {
 
     const [data, setData] = useState([]);
-    const [displayUser, setDisplayUser] = useState();
+    const [displayUser, setDisplayUser] = useState(false);
     const [userData, setDataToLoad] = useState([]);
 
     //Handle
-    const handleSetDisplayUser = (obj) => {
-        setDataToLoad(obj);
-        setDisplayUser(true);
+    const handleSetDisplayUser = (user) => {
+        setDataToLoad(user);
+        setDisplayUser(!displayUser);
     }  
 
     useEffect(() => {

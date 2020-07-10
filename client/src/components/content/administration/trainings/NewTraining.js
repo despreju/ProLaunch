@@ -106,9 +106,9 @@ const NewTraining = (props) => {
   }
 
   return (         
-    <div className="newTraining">         
-      <div className="form">    
-        <h2>Création d'un entrainement</h2>  
+    <div className="backgroundItem">         
+      <div className="item">    
+        <Option back={back} valid={send}/>
         <Form>
           <Form.Group controlId="name">
             <Form.Label>Name</Form.Label>
@@ -144,8 +144,7 @@ const NewTraining = (props) => {
             <i className="fas fa-plus"/>Ajouter un chapitre
           </div>            
 
-        </Form>
-        <Option back={back} valid={send}/>
+        </Form>        
       </div>
     </div>      
   );

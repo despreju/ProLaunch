@@ -28,12 +28,16 @@ const UserItem = (props) => {
         }
     }
 
+    const back = () => {
+        props.back();
+    }
+
     return ( 
-        <div className="item">
+        <div className="backgroundItem">
             <div className="userItem" key={user.id}>
                 {user.level === "admin" ?
-                    <Option remove={remove} setUser={setAdmin}></Option> :
-                    <Option remove={remove} setAdmin={setAdmin}></Option> 
+                    <Option back={back} remove={remove} setUser={setAdmin}></Option> :
+                    <Option back={back} remove={remove} setAdmin={setAdmin}></Option> 
                 }
                 <i className="fas fa-user"></i>
                 <div className='infos'>

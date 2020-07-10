@@ -1,4 +1,4 @@
-.content > div.trainingsList > div.newTraining {
+.content > div.trainingsList > div.backgroundItem {
     height: calc(100% - 160px);
     width: 100%;
     position: absolute;
@@ -10,42 +10,27 @@
     z-index: 99;
 }
 
-.content > div.trainingsList > div.newTraining > div.form {
+.content > div.trainingsList > div.backgroundItem > div.item {
     background-color: white;
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px;
 }
 
-.content > div.trainingsList > div.newTraining > div.form > h2{
-    text-align: center;
-    margin-top: -10px;
-    margin-bottom: 30px;
-}
-.content > div.trainingsList > div.newTraining > div.form > div.option {
-    margin-top: 50px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
+.content > div.trainingsList > div.backgroundItem > div.item > form {
+    padding: 0px 40px 40px 40px;
 }
 
-.content > div.trainingsList > div.newTraining > div.form > div.option > i {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.content > div.trainingsList > div.newTraining > div.form > form > div.form-group {
+.content > div.trainingsList > div.backgroundItem > div.item > form > div.form-group {
     margin-bottom: 20px;
 }
 
-.content > div.trainingsList > div.newTraining div.add > i  {
+.content > div.trainingsList > div.backgroundItem div.add > i  {
     font-size: 20px;
     margin-right: 20px;
 }
 
-.content > div.trainingsList > div.newTraining div.chapter {
+.content > div.trainingsList > div.backgroundItem div.chapter {
     min-height: 100px;
     display: flex;
     flex-direction: row;
@@ -55,7 +40,7 @@
     margin-bottom: 10px;
 }
 
-.content > div.trainingsList > div.newTraining div.addChapter {
+.content > div.trainingsList > div.backgroundItem div.addChapter {
     width: 100%;
     height: 100px;
     margin-bottom: 10px;
@@ -65,19 +50,19 @@
     align-items: center;
 }
 
-.content > div.trainingsList > div.newTraining div.addChapter:hover {
+.content > div.trainingsList > div.backgroundItem div.addChapter:hover {
     border: 1px dotted grey;
     width: calc(100% - 2px);
     border-radius: 5px;
     height: 98px;    
 }
 
-.content > div.trainingsList > div.newTraining div.chapter div.part {
+.content > div.trainingsList > div.backgroundItem div.chapter div.part {
     width: 100%;
     border-right: 1px solid grey;
 }
 
-.content > div.trainingsList > div.newTraining div.chapter div.part div.session {
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.session {
     display: flex;
     flex-direction: row;
     height: 40px;
@@ -86,7 +71,7 @@
     border-radius: 5px;
 }
 
-.content > div.trainingsList > div.newTraining div.chapter div.part div.addSession {
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.addSession {
     width: calc(100% - 10px);
     border: 1px dotted white;
     height: 38px;   
@@ -97,21 +82,21 @@
     align-items: center;
 }
 
-.content > div.trainingsList > div.newTraining div.chapter div.part div.addSession:hover {
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.addSession:hover {
     border: 1px dotted grey;
     width: calc(100% - 10px);
     border-radius: 5px;
     height: 38px;    
 }
 
-.content > div.trainingsList > div.newTraining div.chapter div.part div.session div.exercise {
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.session div.exercise {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.content > div.trainingsList > div.newTraining div.chooseExercise {
+.content > div.trainingsList > div.backgroundItem div.chooseExercise {
     list-style: none;
     z-index: 110;
     min-height: 50px;
@@ -124,7 +109,7 @@
     width: 500px;
 }
 
-.content > div.trainingsList > div.newTraining div.chooseExercise > li.exercise {
+.content > div.trainingsList > div.backgroundItem div.chooseExercise > li.exercise {
     margin: 5px;
     padding:5px;
     background-color: white;
