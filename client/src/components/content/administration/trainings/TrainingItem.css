@@ -1,52 +1,145 @@
-.content .trainingsList > ul > li.item > div.option {
+.content > div.trainingsList > div.backgroundItem {
+    height: calc(100% - 160px);
+    width: 100%;
     position: absolute;
-    right: 0;
-    margin-right: -72px;    
-    transition-duration: 0.15s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: grey;
+    margin-top: -20px;
+    background-color: rgba(101, 101, 101, 0.7);
+    z-index: 99;
 }
 
-.content .trainingsList > ul > li.item:hover > div.option {
-    margin-right: 0px;    
-    transition-duration: 0.15s;
+.content > div.trainingsList > div.backgroundItem > div.item {
+    background-color: white;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.content .trainingsList > ul > li.item > div.option > i {
-    color: black;
-    position: absolute;  
-    right: 0;
-    border-radius: 0;
-    padding: 25px;      
+.content > div.trainingsList > div.backgroundItem > div.item > form {
+    padding: 0px 40px 40px 40px;
 }
 
-.content .trainingsList > ul > li.item > div.option > i:hover {
-    position: absolute;  
-    right: 0;
-    border-radius: 0;
-    padding: 25px;     
-    cursor: pointer;    
+.content > div.trainingsList > div.backgroundItem > div.item > form > div.form-group {
+    margin-bottom: 20px;
 }
 
-.content .trainingsList > ul > li.item > div.option > i.fa-edit {    
-    top: 0;
-    padding: 22px;
+.content > div.trainingsList > div.backgroundItem div.add > i  {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chapter {
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: 0 0 0px black;
+    background-color: lightgray;
+}
+
+.content > div.trainingsList > div.backgroundItem div.addChapter {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.content > div.trainingsList > div.backgroundItem div.addChapter:hover {
+    border: 1px dotted grey;
+    width: calc(100% - 2px);
+    border-radius: 5px;
+    height: 98px;    
+}
+
+.content > div.trainingsList > div.backgroundItem div.chapter div.part {
+    width: 100%;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.session {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    margin: 5px;
+    box-shadow: 0 0 1px black;
     background-color: white;
 }
 
-.content .trainingsList > ul > li.item > div.option > i.fa-trash-alt { 
-    bottom: 0;   
-    padding: 25px;
-    color: red;
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.addSession {
+    width: calc(100% - 12px);
+    border: 1px dotted white;
+    height: 38px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.addSession:hover {
+    border: 1px dotted grey;  
     background-color: white;
 }
 
-.content .trainingsList > ul > li.item > div.option > i.fa-edit:hover {    
-    border-left: 1px solid grey;
-    border-top: 1px solid grey;
-    padding-top: 21px;
+.content > div.trainingsList > div.backgroundItem div.chapter div.part div.session div.exercise {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.content .trainingsList > ul > li.item > div.option > i.fa-trash-alt:hover { 
-    border-left: 1px solid grey;
-    border-bottom: 1px solid grey;
-    padding-bottom: 24px;
+.content > div.trainingsList > div.backgroundItem div.chooseExercise {
+    list-style: none;
+    z-index: 110;
+    min-height: 50px;
+    margin: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 500px;
+    box-shadow: 0 0 3px 2px var(--main-color);
+    background-color: white;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise > li.exercise {
+    padding: 5px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise > li.exercise:hover {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 4px 5px 4px 5px;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise div.backChooseExercise {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;    
+    height: 30px;
+    align-items: center;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise div.backChooseExercise:hover {
+    background-color: lightgray;
+    transition-duration: 0.2s;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise div.backChooseExercise > i {
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise div.backChooseExercise > p {
+    display: none;
+}
+
+.content > div.trainingsList > div.backgroundItem div.chooseExercise div.backChooseExercise:hover > p {
+    display: initial;
 }

@@ -4,14 +4,19 @@ div.repetitions {
     color: grey;
     align-items: center;
     font-size: 20px;
+    justify-content: center;
 }
 
 div.repetitions > i {    
     cursor: pointer;
-    margin: 0px 10px 0px 10px;
+    margin: 0px 5px 0px 5px;
+    font-size: 15px;
 }
 
 div.repetitions > i:hover {
     color: var(--main-color);
 }
 
+div.repetitions > div {    
+    margin: 0px 10px 0px 10px;
+}

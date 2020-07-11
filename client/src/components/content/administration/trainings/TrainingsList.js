@@ -1,19 +1,28 @@
 import React, {useEffect, useState} from 'react'
 import API from "../../../../utils/API.js";
 import './TrainingsList.css';
-import NewTraining from './NewTraining.js';
 import TrainingItem from './TrainingItem.js';
 
 const TrainingsList = (props) => {
 
     const [data, setData] = useState([]);
+    const [dataName, setDataName] = useState();
     const [dataToLoad, setDataToLoad] = useState([]);
     const [displayTraining, setDisplayTraining] = useState();
-    
+    const [displayNewTraining, setDisplayNewTraining] = useState();
+
     //Handle
     const handleSetDisplayTraining = (obj) => {
-        setDisplayTraining(true);
-        (obj.length === 0) ? setDataToLoad(obj): setDataToLoad(obj.chapters);
+        setDisplayTraining(true);       
+        setDataToLoad(obj.chapters);
+        setDataName(obj.name);
+    }  
+
+    //Handle
+    const handleSetDisplayNewTraining = () => {
+        setDisplayNewTraining(true);
+        setDataToLoad([]);
+        setDataName(""); 
     }  
 
     useEffect(() => {
@@ -30,15 +39,17 @@ const TrainingsList = (props) => {
         temp = temp.concat(data);
         temp.push(obj);
         setData(temp);
-        setDisplayTraining();
+        setDisplayTraining(false);
+        setDisplayNewTraining(false);
     }
 
     return (                       
         <div className='list trainingsList'>  
-        {displayTraining && <NewTraining update={updateData} back={setDisplayTraining} data={dataToLoad}/>}                              
+            {displayTraining && <TrainingItem update={updateData} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} isEditMode={false} />}                              
+            {displayNewTraining && <TrainingItem update={updateData} back={setDisplayNewTraining} data={dataToLoad} trainingName={dataName} isEditMode={true} />}                              
             <ul> 
                 {props.user === "admin" && 
-                <li key="1" className='addTraining' onClick={() => handleSetDisplayTraining([])}>
+                <li key="1" className='addTraining' onClick={() => handleSetDisplayNewTraining()}>
                     <i className="fas fa-plus"></i>
                     Ajouter un entrainement
                 </li>}              

@@ -8,9 +8,10 @@ const Repetitions = (props) => {
 
     return (
         <div className="repetitions">            
-            <i className="fas fa-minus-circle" onClick={props.minus}></i>
+            {props.isEditMode && <i className="fas fa-times" onClick={props.remove}></i>}
+            {props.isEditMode && <i className="fas fa-minus-circle" onClick={props.minus}></i>}
             <div>{props.rep}</div>
-            <i className="fas fa-plus-circle"onClick={props.plus}></i>            
+            {props.isEditMode && <i className="fas fa-plus-circle"onClick={props.plus}></i>}         
         </div>
     )
 }

@@ -18,7 +18,7 @@ const Option = (props) => {
     };
 
     const edit = () => {        
-        console.log('[edit]', props.itemType, props.itemName);   
+        props.edit();
     };
 
     const valid = () => {        
@@ -32,7 +32,7 @@ const Option = (props) => {
     return (
         <div className="option">
             {props.back && <div onClick={back}><i className="fas fa-long-arrow-alt-left"></i><p>Retour</p></div>}            
-            {props.edit && <div onClick={edit}><i className="fas fa-edit"></i></div>}
+            {props.edit && <div onClick={edit}><i className="fas fa-edit"></i><p>Modifier</p></div>}
             {props.remove && <div onClick={remove}><i className="fas fa-trash-alt"></i><p>Supprimer</p></div>}
             {props.valid && <div onClick={valid}><i className="far fa-check-circle"></i><p>Valider</p></div>}            
             {props.setAdmin && <div onClick={props.setAdmin}><i className="fas fa-chevron-circle-up"></i><p>Définir comme administrateur</p></div>}
