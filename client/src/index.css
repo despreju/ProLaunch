@@ -100,7 +100,6 @@ input:focus {
 .list > ul > li:hover {
   border: 2px solid var(--main-color);  
   padding: 38px;
-  background-color: var(--main-color-transparent);
 }
 
 .list > ul > li .fas {

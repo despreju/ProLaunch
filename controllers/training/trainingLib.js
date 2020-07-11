@@ -57,6 +57,25 @@ async function createTraining(req, res) {
   }
 }
 
+async function deleteTraining(req, res) {  
+  const {name} = req.body;
+  if (!name ) {
+    return res.status(400).json({
+      text: "Requête invalide"
+    });
+  }
+  try {    
+    await Training.findOneAndRemove({name});
+    return res.status(200).json({
+      text: "Succès"
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error
+    });
+  }
+}
+
 async function getTrainingByName(req, res) {  
   const {name} = req.body;
   if (!name) {
@@ -82,7 +101,6 @@ async function getTrainingByName(req, res) {
 
 async function getAllTrainings(req, res) {  
   try {
-/*     const rep = await Training.find().populate('exercise'); */
     const rep = await Training.find().populate({ 
                                                   path: 'chapters.sessions.exercise',
                                                   model: 'Exercise',
@@ -100,5 +118,6 @@ async function getAllTrainings(req, res) {
 
 //On exporte nos fonctions
 exports.createTraining = createTraining;
+exports.deleteTraining = deleteTraining;
 exports.getTrainingByName = getTrainingByName;
 exports.getAllTrainings = getAllTrainings;

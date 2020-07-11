@@ -23,3 +23,9 @@
 .content > div.usersList > div.backgroundItem > div.userItem > i {
     font-size: 50px ;
 }
+
+.content > div.usersList > div.backgroundItem > div.userItem div.userInfo {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

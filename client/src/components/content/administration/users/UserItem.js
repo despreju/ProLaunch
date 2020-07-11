@@ -41,8 +41,9 @@ const UserItem = (props) => {
                 }
                 <i className="fas fa-user"></i>
                 <div className='infos'>
-                    <p className='name'>{user.name}</p>
-                    <p className='email'>{user.email}</p>
+                    <p className='name'>Nom : {user.name}</p>
+                    <p className='email'>Email : {user.email}</p>
+                    <p className='level'>Niveau : {user.level}</p>
                 </div>
             </div>
         </div>

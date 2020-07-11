@@ -34,10 +34,11 @@ const TrainingsList = (props) => {
         console.log('rechargement training list');
     }, []);
 
-    const updateData = (obj) => {  
+    const updateData = (args) => {  
         let temp = [];
         temp = temp.concat(data);
-        temp.push(obj);
+        if (args[0] === "add") temp.push(args[1]);
+        if (args[0] === "remove") temp.splice(temp.findIndex(training => training.name === args[1]),1);
         setData(temp);
         setDisplayTraining(false);
         setDisplayNewTraining(false);

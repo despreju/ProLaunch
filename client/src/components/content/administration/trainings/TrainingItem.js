@@ -7,9 +7,6 @@ import Repetitions from './Repetitions.js';
 
 const TrainingItem = (props) => {
 
-  useEffect(() => {
-  });
-
   //State
   const [name, setName] = useState(props.trainingName);
   const [exercises, setExercises] = useState([]);
@@ -52,7 +49,7 @@ const TrainingItem = (props) => {
     try {              
       const { data } = await API.createTraining({ name, chapters });
       console.log("new training",data);    
-      props.update(data);
+      props.update(["add", data]);
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +64,15 @@ const TrainingItem = (props) => {
   const edit = () => {
     setIsEditMode(true);
   }
+
+  const remove = async () => {                
+    try {
+        const { data } = await API.deleteTraining({name});           
+        props.update(["remove", name]);
+    } catch (error) {
+        console.log(error);
+    }
+  };
 
 
   const addChapter = (event) => {
@@ -125,7 +131,7 @@ const TrainingItem = (props) => {
     setChapters(temp);
   }
 
-  const remove = (args) => {  
+  const removeItems = (args) => {  
     let temp = [];
     temp = temp.concat(chapters);
     const chapterIndex = temp.findIndex(chapter => chapter._id === args[0]);
@@ -142,7 +148,7 @@ const TrainingItem = (props) => {
       <div className="item">    
         {isEditMode ? 
           <Option back={back} valid={send}/> :
-          <Option back={back} edit={edit}/>
+          <Option back={back} edit={edit} remove={remove}/>
         }
         <Form>
           {isEditMode ?
@@ -158,7 +164,7 @@ const TrainingItem = (props) => {
                 {chapter.sessions.map((session) => 
                   <div className="session">
                     <div key={session._id} className="exercise">{session.exercise.name}</div>
-                    <Repetitions isEditMode={isEditMode} rep={session.repetitions} plus={() => plusReps([chapter._id,session._id])} minus={() => minusReps([chapter._id,session._id])} remove={() => remove([chapter._id,session._id])}/>
+                    <Repetitions isEditMode={isEditMode} rep={session.repetitions} plus={() => plusReps([chapter._id,session._id])} minus={() => minusReps([chapter._id,session._id])} remove={() => removeItems([chapter._id,session._id])}/>
                   </div>                    
                 )}
                 {isEditMode &&
@@ -180,7 +186,7 @@ const TrainingItem = (props) => {
                   </Fragment> 
                 }
               </div>
-              <Repetitions isEditMode={isEditMode} rep={chapter.repetitions} plus={() => plusReps([chapter._id])} minus={() => minusReps([chapter._id])} remove={() => remove([chapter._id])}/>
+              <Repetitions isEditMode={isEditMode} rep={chapter.repetitions} plus={() => plusReps([chapter._id])} minus={() => minusReps([chapter._id])} remove={() => removeItems([chapter._id])}/>
             </div>             
           )}
           {isEditMode &&

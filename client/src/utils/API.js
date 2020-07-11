@@ -55,10 +55,13 @@ export default {
     return axios.get(`${burl}/exercise/getAllExercises`);
   },
 
-
   //TRAININGS
   createTraining: function(send) {
     return axios.post(`${burl}/training/createTraining`, send, { headers: headers });
+  },
+
+  deleteTraining: function(send) {
+    return axios.post(`${burl}/training/deleteTraining`, send, { headers: headers });
   },
 
   getTrainingByName: function(send) {
