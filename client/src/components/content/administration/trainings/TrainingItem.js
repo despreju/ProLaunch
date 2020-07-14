@@ -27,9 +27,8 @@ const TrainingItem = (props) => {
 
   //structures données chapitre
   const chapterObject =  {
-                            "_id" : chapters.length,
-                            "name" : "chapter" + chapters.length,
                             "sessions" : [],
+                            "_id" : chapters.length,                       
                             "repetitions" : 1
                           };
 
@@ -46,10 +45,11 @@ const TrainingItem = (props) => {
   const send = async () => {    
     if (!{name} || {name}.length === 0) return; 
     if (!{chapters} || {chapters}.length === 0) return; 
-    try {              
-      const { data } = await API.createTraining({ name, chapters });
-      console.log("new training",data);    
-      props.update(["add", data]);
+    try {  
+      const _id = props.trainingId;
+      if (_id === "") { const { data } = await API.createTraining({ name, chapters }); }
+      else { const { data } = await API.saveTraining({ name, chapters, _id }); }      
+      props.update();
     } catch (error) {
       console.error(error);
     }
@@ -63,6 +63,10 @@ const TrainingItem = (props) => {
   //edit form
   const edit = () => {
     setIsEditMode(true);
+  }
+
+  const start = () => {
+    console.log("start");
   }
 
   const remove = async () => {                
@@ -100,7 +104,6 @@ const TrainingItem = (props) => {
     temp = temp.concat(chapters);
     setChapters(temp);  
     setDisplayChooseExercise();
-    console.log(displayChooseExercise);
   }
   
   const minusReps = (args) => {  
@@ -145,10 +148,15 @@ const TrainingItem = (props) => {
 
   return (         
     <div className="backgroundItem">         
-      <div className="item">    
-        {isEditMode ? 
-          <Option back={back} valid={send}/> :
-          <Option back={back} edit={edit} remove={remove}/>
+      <div className="item">  
+        {props.level === "user" ?
+          <Option back={back} start={start}/> :
+          <Fragment>
+            {isEditMode ? 
+              <Option back={back} valid={send}/> :
+              <Option back={back} edit={edit} remove={remove}/>
+            }
+          </Fragment>
         }
         <Form>
           {isEditMode ?

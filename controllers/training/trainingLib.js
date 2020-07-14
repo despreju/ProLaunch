@@ -57,6 +57,38 @@ async function createTraining(req, res) {
   }
 }
 
+async function saveTraining(req, res) {  
+  const {name, chapters, _id} = req.body;
+  if (!name || !chapters) {
+    return res.status(400).json({
+      text: "Requête invalide"
+    });
+  }
+  //On parcourt les exercices, on vérifie qu'ils existent et on les ajoutes à la liste
+  for (iteratorChapter in chapters) {
+    delete chapters[iteratorChapter]._id;
+    for (iteratorSession in chapters[iteratorChapter].sessions) {
+      delete chapters[iteratorChapter].sessions[iteratorSession]._id;
+      try {    
+        const exercise = await Exercise.findOne({"name" : chapters[iteratorChapter].sessions[iteratorSession].exercise.name});
+        if (exercise === null) {
+          return res.status(400).json({
+            text: "L'exercice " + name + " n'existe pas"
+          });
+        }
+        chapters[iteratorChapter].sessions[iteratorSession].exercise = exercise;
+      } catch (error) {
+        return res.status(500).json({ error });
+      }  
+    }  
+  }
+  Training.updateOne({ _id: _id }, {name : name, chapters : chapters}, 
+  function(err, doc){ 
+      if (err) return res.send(500, { err });       
+      return res.send(200, { doc });
+  }); 
+}
+
 async function deleteTraining(req, res) {  
   const {name} = req.body;
   if (!name ) {
@@ -118,6 +150,7 @@ async function getAllTrainings(req, res) {
 
 //On exporte nos fonctions
 exports.createTraining = createTraining;
+exports.saveTraining = saveTraining;
 exports.deleteTraining = deleteTraining;
 exports.getTrainingByName = getTrainingByName;
 exports.getAllTrainings = getAllTrainings;

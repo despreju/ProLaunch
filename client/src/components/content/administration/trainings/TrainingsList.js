@@ -7,15 +7,18 @@ const TrainingsList = (props) => {
 
     const [data, setData] = useState([]);
     const [dataName, setDataName] = useState();
+    const [dataId, setDataId] = useState("");
     const [dataToLoad, setDataToLoad] = useState([]);
     const [displayTraining, setDisplayTraining] = useState();
     const [displayNewTraining, setDisplayNewTraining] = useState();
+    const [forceUpdate, setForceUpdate] = useState(false);
 
     //Handle
     const handleSetDisplayTraining = (obj) => {
         setDisplayTraining(true);       
         setDataToLoad(obj.chapters);
         setDataName(obj.name);
+        setDataId(obj._id);
     }  
 
     //Handle
@@ -23,6 +26,7 @@ const TrainingsList = (props) => {
         setDisplayNewTraining(true);
         setDataToLoad([]);
         setDataName(""); 
+        setDataId("");
     }  
 
     useEffect(() => {
@@ -31,23 +35,19 @@ const TrainingsList = (props) => {
             setData(result.data);
         };
         fetchData();
-        console.log('rechargement training list');
-    }, []);
+        
+    }, [forceUpdate]);
 
-    const updateData = (args) => {  
-        let temp = [];
-        temp = temp.concat(data);
-        if (args[0] === "add") temp.push(args[1]);
-        if (args[0] === "remove") temp.splice(temp.findIndex(training => training.name === args[1]),1);
-        setData(temp);
+    const updateData = () => {  
+        setForceUpdate(!forceUpdate);
         setDisplayTraining(false);
-        setDisplayNewTraining(false);
+        setDisplayNewTraining(false);        
     }
 
     return (                       
         <div className='list trainingsList'>  
-            {displayTraining && <TrainingItem update={updateData} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} isEditMode={false} />}                              
-            {displayNewTraining && <TrainingItem update={updateData} back={setDisplayNewTraining} data={dataToLoad} trainingName={dataName} isEditMode={true} />}                              
+            {displayTraining && <TrainingItem level={props.user} update={updateData} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={false} />}                              
+            {displayNewTraining && <TrainingItem update={updateData} back={setDisplayNewTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={true} />}                              
             <ul> 
                 {props.user === "admin" && 
                 <li key="1" className='addTraining' onClick={() => handleSetDisplayNewTraining()}>

@@ -60,6 +60,10 @@ export default {
     return axios.post(`${burl}/training/createTraining`, send, { headers: headers });
   },
 
+  saveTraining: function(send) {
+    return axios.post(`${burl}/training/saveTraining`, send, { headers: headers });
+  },
+
   deleteTraining: function(send) {
     return axios.post(`${burl}/training/deleteTraining`, send, { headers: headers });
   },
