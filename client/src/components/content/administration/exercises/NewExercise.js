@@ -42,67 +42,67 @@ const NewExercise = (props) => {
   }
 
   return (      
-        <div className="newExercise">         
-          <div className="form">    
-            <h2>Création d'un exercice</h2>  
-            <Form>
-              <Form.Group controlId="name">
-                <Form.Label>Name</Form.Label>
-                <Form.Control type="name" placeholder="Enter name" value={name} onChange={handleSetName} />
-              </Form.Group>  
+        <div className="backgroundItem">    
+          <div className="item">
+            <Option back={back} valid={send}/>  
+            <div className="form">                   
+              <h2>Création d'un exercice</h2>  
+              <Form>
+                <Form.Group controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control type="name" placeholder="Enter name" value={name} onChange={handleSetName} />
+                </Form.Group>  
 
-              <Form.Group controlId="password">
-                <Form.Label>Difficulty</Form.Label>
-                <div className="checkbox" onClick={handleSetDifficulty}>        
-                    <div>
-                      <input type="radio" id="1" name="difficulty" value="1"/>
-                      <label for="1">1</label>
-                    </div>
+                <Form.Group controlId="password">
+                  <Form.Label>Difficulty</Form.Label>
+                  <div className="checkbox" onClick={handleSetDifficulty}>        
+                      <div>
+                        <input type="radio" id="1" name="difficulty" value="1"/>
+                        <label for="1">1</label>
+                      </div>
 
-                    <div>
-                      <input type="radio" id="2" name="difficulty" value="2"/>
-                      <label for="2">2</label>
-                    </div>
+                      <div>
+                        <input type="radio" id="2" name="difficulty" value="2"/>
+                        <label for="2">2</label>
+                      </div>
 
-                    <div>
-                      <input type="radio" id="3" name="difficulty" value="3"/>
-                      <label for="3">3</label>
-                    </div>   
+                      <div>
+                        <input type="radio" id="3" name="difficulty" value="3"/>
+                        <label for="3">3</label>
+                      </div>   
 
-                    <div>
-                      <input type="radio" id="4" name="difficulty" value="4"/>
-                      <label for="4">4</label>
-                    </div>   
+                      <div>
+                        <input type="radio" id="4" name="difficulty" value="4"/>
+                        <label for="4">4</label>
+                      </div>   
 
-                    <div>
-                      <input type="radio" id="5" name="difficulty" value="5"/>
-                      <label for="5">5</label>
-                    </div>   
-                  </div>     
-              </Form.Group>  
+                      <div>
+                        <input type="radio" id="5" name="difficulty" value="5"/>
+                        <label for="5">5</label>
+                      </div>   
+                    </div>     
+                </Form.Group>  
+                <Form.Group controlId="location">
+                    <Form.Label>Location</Form.Label>      
+                    <div className="checkbox" onClick={handleSetLocation}>        
+                      <div>
+                        <input type="radio" id="huey" name="location" value="Haut du corps"/>
+                        <label for="huey">Haut du corps</label>
+                      </div>
 
-              <Form.Group controlId="location">
-                  <Form.Label>Location</Form.Label>      
-                  <div className="checkbox" onClick={handleSetLocation}>        
-                    <div>
-                      <input type="radio" id="huey" name="location" value="Haut du corps"/>
-                      <label for="huey">Haut du corps</label>
-                    </div>
+                      <div>
+                        <input type="radio" id="dewey" name="location" value="Bas du corps"/>
+                        <label for="dewey">Bas du corps</label>
+                      </div>
 
-                    <div>
-                      <input type="radio" id="dewey" name="location" value="Bas du corps"/>
-                      <label for="dewey">Bas du corps</label>
-                    </div>
-
-                    <div>
-                      <input type="radio" id="louie" name="location" value="Complet"/>
-                      <label for="louie">Complet</label>
-                    </div>   
-                  </div>         
-              </Form.Group>     
-
-            </Form>
-            <Option back={back} valid={send}/>
+                      <div>
+                        <input type="radio" id="louie" name="location" value="Complet"/>
+                        <label for="louie">Complet</label>
+                      </div>   
+                    </div>         
+                </Form.Group>
+              </Form>            
+            </div>
           </div>
         </div>      
   );

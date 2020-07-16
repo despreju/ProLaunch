@@ -4,20 +4,27 @@ import Option from  '../../Option.js';
 
 const ExerciseItem = (props) => {
 
-    const [isRemoved, setIsRemoved] = useState(false);
+    const [exercise, setExercise] = useState(props.data);
+
+    const remove = async () => {                
+        console.log("statistics delete");
+    };
+
+    const back = () => {
+        props.back();
+    }
 
     return ( 
-        <Fragment>
-            {!isRemoved &&       
-            <li className="item" key={props.id}>
-                <i className="fas fa-dumbbell"></i>
+        <div className="backgroundItem">
+            <div className="item" key={exercise.id}>
+                <Option back={back} remove={remove}></Option>
                 <div className='infos'>
-                    <p className='name'>{props.name}</p>
-                    <p className='difficulty'>{props.difficulty}</p>
+                    <p>{exercise.name}</p>
+                    <p>{exercise.location}</p>
+                    <p>{exercise.difficulty}</p>                  
                 </div>
-                <Option itemType="exercise" itemId={props.id} itemName={props.name} remove={setIsRemoved} edit={true}/>
-            </li>}
-        </Fragment>
+            </div>
+        </div>
     )
 
 }

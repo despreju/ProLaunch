@@ -17,10 +17,10 @@ const StatisticItem = (props) => {
 
     return ( 
         <div className="backgroundItem">
-            <div className="statisticItem" key={statistic.id}>
+            <div className="item" key={statistic.id}>
                 <Option back={back} remove={remove}></Option>
                 <div className='infos'>
-                    {props.data.user} a fait {props.data.training} pendant {props.data.duration} ms
+                    {statistic.user} a fait {statistic.training} pendant {statistic.duration} ms
                 </div>
             </div>
         </div>

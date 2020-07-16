@@ -1,52 +1,32 @@
-.content .exercisesList > ul > li.item > div.option {
+.content > div.exercisesList > div.backgroundItem {
+    height: calc(100% - 160px);
+    width: 100%;
     position: absolute;
-    right: 0;
-    margin-right: -72px;    
-    transition-duration: 0.15s;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: grey;
+    margin-top: -20px;
+    background-color: rgba(101, 101, 101, 0.7);
+    z-index: 99;
 }
 
-.content .exercisesList > ul > li.item:hover > div.option {
-    margin-right: 0px;    
-    transition-duration: 0.15s;
-}
-
-.content .exercisesList > ul > li.item > div.option > i {
-    color: black;
-    position: absolute;  
-    right: 0;
-    border-radius: 0;
-    padding: 25px;      
-}
-
-.content .exercisesList > ul > li.item > div.option > i:hover {
-    position: absolute;  
-    right: 0;
-    border-radius: 0;
-    padding: 25px;     
-    cursor: pointer;    
-}
-
-.content .exercisesList > ul > li.item > div.option > i.fa-edit {    
-    top: 0;
-    padding: 22px;
+.content > div.exercisesList > div.backgroundItem > div.item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background-color: white;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.content .exercisesList > ul > li.item > div.option > i.fa-trash-alt { 
-    bottom: 0;   
-    padding: 25px;
-    color: red;
-    background-color: white;
+.content > div.exercisesList > div.backgroundItem > div.item > i {
+    font-size: 50px ;
 }
 
-.content .exercisesList > ul > li.item > div.option > i.fa-edit:hover {    
-    border-left: 1px solid grey;
-    border-top: 1px solid grey;
-    padding-top: 21px;
-}
-
-.content .exercisesList > ul > li.item > div.option > i.fa-trash-alt:hover { 
-    border-left: 1px solid grey;
-    border-bottom: 1px solid grey;
-    padding-bottom: 24px;
+.content > div.exercisesList > div.backgroundItem > div.item div.infos {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }

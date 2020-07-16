@@ -10,7 +10,7 @@
     z-index: 99;
 }
 
-.content > div.statisticsList > div.backgroundItem > div.statisticItem {
+.content > div.statisticsList > div.backgroundItem > div.item {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,11 +20,11 @@
     margin-right: auto;
 }
 
-.content > div.statisticsList > div.backgroundItem > div.statisticItem > i {
+.content > div.statisticsList > div.backgroundItem > div.item > i {
     font-size: 50px ;
 }
 
-.content > div.statisticsList > div.backgroundItem > div.statisticItem div.infos {
+.content > div.statisticsList > div.backgroundItem > div.item div.infos {
     align-items: center;
     display: flex;
     flex-direction: column;
