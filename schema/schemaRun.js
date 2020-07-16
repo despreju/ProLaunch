@@ -3,12 +3,10 @@ const mongoose = require("mongoose");
 const runSchema = mongoose.Schema(
   {
     training : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Training'            
+        type: String           
     },      
     user : {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User' 
+        type: String
     },
     duration : {
         type: Number

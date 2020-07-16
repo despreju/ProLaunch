@@ -74,5 +74,15 @@ export default {
 
   getAllTrainings: function() {
     return axios.get(`${burl}/training/getAllTrainings`);
-  }
+  },
+
+  //RUN
+  createRun: function(send) {
+    return axios.post(`${burl}/run/createRun`, send, { headers: headers });
+  },
+
+  getAllRuns: function() {
+    return axios.get(`${burl}/run/getAllRuns`);
+  },
+
 };

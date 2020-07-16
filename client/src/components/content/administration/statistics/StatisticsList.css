@@ -1,0 +1,7 @@
+.content .statisticsList {
+    width: 100%;
+}
+
+.content .statisticsList.list .fas {
+    padding: 14px 15px 14px 15px;
+}

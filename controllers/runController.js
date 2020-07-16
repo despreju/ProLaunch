@@ -1,5 +1,6 @@
-const run = require('./run/trainingHistoryLib.js');
+const run = require('./run/runLib.js');
 
 module.exports = function (app) {
     app.post('/createRun',run.createRun);
+    app.get('/getAllRuns',run.getAllRuns);
 }

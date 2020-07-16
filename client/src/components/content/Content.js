@@ -10,6 +10,7 @@ import Signup from '../login/Signup';
 import UsersList from './administration/users/UsersList';
 import ExercisesList from './administration/exercises/ExercisesList';
 import TrainingsList from './administration/trainings/TrainingsList';
+import StatisticsList from './administration/statistics/StatisticsList';
 import { PrivateRoute } from "../PrivateRoute.js";
 import {CredentialContext} from '../../contexts/CredentialContext';
 
@@ -32,6 +33,7 @@ function Content() {
           <PrivateRoute path="/admin/trainings" exact component={() => <TrainingsList user="admin"/>}/>    
           <PrivateRoute path="/admin/exercises" exact component={ExercisesList}/> 
           <PrivateRoute path="/admin/users" exact component={UsersList}/>
+          <PrivateRoute path="/admin/statistics" exact component={StatisticsList}/>
         </Fragment>
         }
         {!isLogged && (!isSignUpForm ? <Login signUp={setIsSignUpForm}/> : <Signup/>)}           

@@ -1,16 +1,21 @@
 import React, {useState, useContext, useEffect, Fragment} from "react";
 import './Run.css';
+import API from "../../../utils/API.js";
 import {RunContext} from '../../../contexts/RunContext.js';
+import {CredentialContext} from '../../../contexts/CredentialContext';
+import {Link} from 'react-router-dom';
 
 export default function Run() {
 
     //State
     const [progressIndex, setProgressIndex] = useState(-1);
     const [usableRun, setUsableRun] = useState([]);
+    const [startTime, setStartTime] = useState();
 
     //Context
-    const [run, setRun] = useContext(RunContext);
-
+    const [run, setRun] = useContext(RunContext);    
+    const {profile} = useContext(CredentialContext);
+    
     useEffect(() => {
         console.log('Run - useEffect')
         buildUsableRun();
@@ -30,19 +35,33 @@ export default function Run() {
         setUsableRun(usableRunObject);
     }
     
-    const nextRun = () => {
-        console.log("nextRun");
+    const startRun = () => {
+        setStartTime(new Date().getTime());
         setProgressIndex(progressIndex+1);
     }
 
-    const finishRun = () => {
-        console.log("finishRun");
+    const nextRun = () => {
+        setProgressIndex(progressIndex+1);
     }
+
+    const finishRun = async () => {                 
+        try {  
+            const training = run.name;
+            const user = profile.email;
+            const duration = new Date().getTime() - startTime;
+            const state = 'finish';
+            const { data } = await API.createRun({ training, user, duration, state });
+            setRun(null);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
 
     return (
         <div className="run">
             {progressIndex === -1 &&
-                <div className="startButton" onClick={() => nextRun()}>Début</div>
+                <div className="startButton" onClick={() => startRun()}>Début</div>
             }
             {(-1 < progressIndex && progressIndex < usableRun.length) &&
             <Fragment>
@@ -74,7 +93,9 @@ export default function Run() {
             </Fragment>  
             }         
             {progressIndex === usableRun.length &&
-                <div className="finishButton" onClick={() => finishRun()}>Fin</div>
+                <Link to="/"> 
+                    <div className="finishButton" onClick={() => finishRun()}>Fin</div>
+                </Link>
             }
         </div>
     )

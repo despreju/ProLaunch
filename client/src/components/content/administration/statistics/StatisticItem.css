@@ -1,4 +1,4 @@
-.content > div.usersList > div.backgroundItem {
+.content > div.statisticsList > div.backgroundItem {
     height: calc(100% - 160px);
     width: 100%;
     position: absolute;
@@ -10,7 +10,7 @@
     z-index: 99;
 }
 
-.content > div.usersList > div.backgroundItem > div.userItem {
+.content > div.statisticsList > div.backgroundItem > div.statisticItem {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -20,12 +20,13 @@
     margin-right: auto;
 }
 
-.content > div.usersList > div.backgroundItem > div.userItem > i {
+.content > div.statisticsList > div.backgroundItem > div.statisticItem > i {
     font-size: 50px ;
 }
 
-.content > div.usersList > div.backgroundItem > div.userItem div.infos {
+.content > div.statisticsList > div.backgroundItem > div.statisticItem div.infos {
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20px;
 }
