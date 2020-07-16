@@ -3,6 +3,7 @@ import React, {useContext, useState, Fragment} from 'react';
 import './Content.css';
 import Admin from './administration/Admin';
 import Statistics from './statistics/Statistics';
+import Run from './training/Run.js';
 
 import Login from '../login/Login';
 import Signup from '../login/Signup';
@@ -24,6 +25,7 @@ function Content() {
 
         <PrivateRoute path="/training" exact component={() => <TrainingsList user="user"/>}/>    
         <PrivateRoute path="/statistics" exact component={Statistics}/> 
+        <PrivateRoute path="/run" exact component={Run}/> 
         {profile.level === "admin" &&
         <Fragment>
           <PrivateRoute path="/admin" exact component={Admin}/>

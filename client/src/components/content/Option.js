@@ -1,7 +1,7 @@
-import React from 'react'
+import React , { Fragment} from 'react'
 import API from "../../utils/API.js";
 import './Option.css';
-
+import {Link} from 'react-router-dom';
 const Option = (props) => {
 
     return (
@@ -12,7 +12,11 @@ const Option = (props) => {
             {props.valid && <div onClick={props.valid}><i className="far fa-check-circle"></i><p>Valider</p></div>}            
             {props.setAdmin && <div onClick={props.setAdmin}><i className="fas fa-chevron-circle-up"></i><p>Définir comme administrateur</p></div>}
             {props.setUser && <div onClick={props.setUser}><i className="fas fa-chevron-circle-down"></i><p>Définir comme utilisateur</p></div>}
-            {props.start && <div onClick={props.start}><i className="fas fa-play"></i><p>Lancer l'entrainement</p></div>}
+            {props.start &&
+                <Link to="/run"> 
+                    <div onClick={props.start}><i className="fas fa-play"></i><p>Lancer l'entrainement</p></div>
+                </Link>
+            }
         </div>
     )
 }

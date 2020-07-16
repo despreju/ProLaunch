@@ -33,3 +33,32 @@ div.option > div:hover > p {
     display: initial;
 }
 
+div.option > a {    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    align-items: center;    
+    transition-duration: 0.2s;
+}
+
+div.option > a:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+div.option > a i {    
+    font-size: 20px;
+    padding-right: 15px;
+}
+
+div.option > a p {    
+    display: none;
+    font-size: 15px;
+}
+
+div.option > a:hover p {    
+    display: initial;
+}
+
+

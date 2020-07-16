@@ -9,19 +9,23 @@ import {BrowserRouter as Router} from 'react-router-dom';
 
 //Contexts
 import CredentialContextProvider from './contexts/CredentialContext';
+import RunContextProvider from './contexts/RunContext';
+import MenuContextProvider from './contexts/MenuContext';
 
 function App() {
-
-  const [menuSelected, setMenuSelected] = useState("");
 
   return (
     <div className='main'>      
       <CredentialContextProvider>
-        <Header/>
-          <Router>
-            <Menu setMenuSelected={setMenuSelected}/>
-            <Content menuSelected={menuSelected}/>
-          </Router>
+        <MenuContextProvider>
+          <RunContextProvider>
+            <Header/>
+            <Router>
+              <Menu/>
+              <Content/>
+            </Router>
+          </RunContextProvider>
+        </MenuContextProvider>
       </CredentialContextProvider>
     </div>
   );

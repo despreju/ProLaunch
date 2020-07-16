@@ -1,9 +1,11 @@
-import React, {useState, useEffect, Fragment} from "react";
+import React, {useState, useContext, Fragment} from "react";
 import Form from "react-bootstrap/Form";
 import API from "../../../../utils/API";
 import './TrainingItem.css';
 import Option from '../../Option.js';
 import Repetitions from './Repetitions.js';
+import {RunContext} from '../../../../contexts/RunContext.js';
+import {MenuContext} from '../../../../contexts/MenuContext.js';
 
 const TrainingItem = (props) => {
 
@@ -13,6 +15,10 @@ const TrainingItem = (props) => {
   const [chapters, setChapters] = useState(props.data);
   const [displayChooseExercise, setDisplayChooseExercise] = useState();
   const [isEditMode, setIsEditMode] = useState(props.isEditMode);
+
+  //Context
+  const [run, setRun] = useContext(RunContext);
+  const [menuSelected, setMenuSelected] = useContext(MenuContext);
 
   //Handle
   const handleSetName = (event) => {
@@ -66,7 +72,15 @@ const TrainingItem = (props) => {
   }
 
   const start = () => {
-    console.log("start");
+    setMenuSelected("run");
+    //On définit globalement le run
+    handleSetRun();        
+  }
+
+  const handleSetRun = () => {
+    const run = {name:name, chapters:chapters};
+    localStorage.setItem("run", JSON.stringify(run));
+    setRun(run);
   }
 
   const remove = async () => {                
