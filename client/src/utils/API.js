@@ -85,4 +85,12 @@ export default {
     return axios.get(`${burl}/run/getAllRuns`);
   },
 
+  getAllRunsByUser: function(send) {
+    return axios.post(`${burl}/run/getAllRunsByUser`, send, { headers: headers });
+  },
+
+  deleteRun: function(send) {
+    return axios.post(`${burl}/run/deleteRun`, send, { headers: headers });
+  }
+
 };

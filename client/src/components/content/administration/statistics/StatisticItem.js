@@ -8,7 +8,13 @@ const StatisticItem = (props) => {
     const [statistic, setStatistic] = useState(props.data);
 
     const remove = async () => {                
-        console.log("statistics delete");
+        try {
+            const id = statistic.id;
+            const { data } = await API.deleteRun({id});           
+            props.update();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const back = () => {

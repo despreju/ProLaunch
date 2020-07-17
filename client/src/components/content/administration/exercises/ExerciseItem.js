@@ -1,13 +1,21 @@
 import React, {Fragment, useState} from 'react'
 import './ExerciseItem.css';
 import Option from  '../../Option.js';
+import API from "../../../../utils/API";
+
 
 const ExerciseItem = (props) => {
 
     const [exercise, setExercise] = useState(props.data);
 
     const remove = async () => {                
-        console.log("statistics delete");
+        try {
+            const name = exercise.name;
+            const { data } = await API.deleteExercise({name});           
+            props.update();
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const back = () => {

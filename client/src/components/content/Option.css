@@ -61,4 +61,11 @@ div.option > a:hover p {
     display: initial;
 }
 
+.far.fa-check-circle {
+    color: green;
+}
+
+.fas.fa-trash-alt {
+    color: red;
+}
 

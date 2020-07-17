@@ -31,29 +31,39 @@ const ExercisesList = () => {
     }, [forceUpdate]);   
 
     const updateData = (obj) => {  
-        data.push(obj);  
-        setData([]);
-        setData(data);     
-        setDisplayNewExercise();    
+        setForceUpdate(!forceUpdate);
+        setDisplayNewExercise(false); 
+        setDisplayExercise(false);   
     }
 
     return (                       
         <div className='list exercisesList'>    
-            {displayExercise && <ExerciseItem back={setDisplayExercise} data={exerciseData}/>}
-            {displayNewExercise && <NewExercise update={updateData} back={setDisplayNewExercise}/>}                     
-            <ul>
-                <li key="1" className='addExercise' onClick={() => handleSetDisplayNewExercise()}>
+            {displayExercise && <ExerciseItem update={updateData} back={setDisplayExercise} data={exerciseData}/>}
+            {displayNewExercise && <NewExercise update={updateData} back={setDisplayNewExercise}/>}                  
+            <div key="1" className='add' onClick={() => handleSetDisplayNewExercise()}>
                     <i className="fas fa-plus"></i>
                     Ajouter un exercice
-                </li>
+            </div>
+            <div className="tab">
+                <div className="iconeF"></div>
+                <div className="nameF">Nom</div>
+                <div className="difficultyF">Difficulté</div>
+                <div className="locationF">Location</div>
+            </div>   
+            <ul>                                
                 {data.map((exercise) =>    
-                    <li className="item" key={exercise.id} onClick={() => handleSetDisplayExercise(exercise)}>
-                    <i className="fas fa-dumbbell"></i>
-                    <div className='infos'>
-                        <p className='name'>{exercise.name}</p>
-                        <p className='difficulty'>{exercise.difficulty}</p>
-                    </div>
-                </li>          
+                    <li className="item" key={exercise.id} onClick={() => handleSetDisplayExercise(exercise)}>                    
+                        <div className="icone"><i className="fas fa-dumbbell"></i></div>
+                        <div className='name'>{exercise.name}</div>
+                        <div className='difficulty'>
+                            {exercise.difficulty === 1 && <div className="gauge one"/>}
+                            {exercise.difficulty === 2 && <div className="gauge two"/>}
+                            {exercise.difficulty === 3 && <div className="gauge three"/>}
+                            {exercise.difficulty === 4 && <div className="gauge four"/>}
+                            {exercise.difficulty === 5 && <div className="gauge five"/>}
+                        </div>
+                        <div className='location'>{exercise.location}</div>                               
+                    </li>          
                 )}
             </ul>
         </div>

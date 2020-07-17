@@ -1,7 +1,27 @@
-.content .statisticsList {
+.content .statisticsList {  
     width: 100%;
 }
 
-.content .statisticsList.list .fas {
-    padding: 14px 15px 14px 15px;
+.content .statisticsList > ul > li > div.name {
+    width: 50%;
+}
+
+.content .statisticsList > ul > li > div.training {
+    width: 25%;
+}
+
+.content .statisticsList > ul > li > div.date {
+    width: 25%;
+}
+
+.content .statisticsList > div.tab > div.nameF {
+    width: 50%;
+}
+
+.content .statisticsList > div.tab > div.trainingF {
+    width: 25%;
+}
+
+.content .statisticsList > div.tab > div.dateF {
+    width: 25%;
 }

@@ -8,7 +8,7 @@ div.run {
 }
 
 
-div.run > div.startButton {
+div.run div.startButton {
     width: 100%;
     height: 30%;
     background-color: limegreen;
@@ -19,7 +19,7 @@ div.run > div.startButton {
     justify-content: center;
 }
 
-div.run > div.finishButton {
+div.run a {
     width: 100%;
     height: 30%;
     background-color: red;

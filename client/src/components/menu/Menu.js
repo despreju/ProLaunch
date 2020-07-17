@@ -30,11 +30,11 @@ function Menu() {
           <Link to="/training">   
             <MenuItem logo={'fas fa-dumbbell'} class={'training'} action={setMenuSelected} isSelected={menuSelected} title={'Entrainement'}/>
           </Link>
+          <Link to="/statistics">  
+            <MenuItem logo={'fas fa-chart-bar'} class={'statistics'} action={setMenuSelected} isSelected={menuSelected} title={'Statistiques'}/>
+          </Link>
           {profile.level === "admin" &&
-            <Fragment>
-              <Link to="/statistics">  
-                <MenuItem logo={'fas fa-chart-bar'} class={'statistics'} action={setMenuSelected} isSelected={menuSelected} title={'Statistiques'}/>
-              </Link>
+            <Fragment>             
               <Link to="/admin">  
                 <MenuItem logo={'fas fa-users-cog'} class={'admin'} action={setMenuSelected} isSelected={menuSelected} title={'Administration'}/>
             </Link>

@@ -2,26 +2,14 @@
     width: 100%;
 }
 
-.content .trainingsList > ul > li.addTraining {
-    align-items: center;
+.content .exercisesList > ul > li > div.name {
+    width: 100%;
+}
+
+.content .exercisesList > div.tab {
     font-weight: bold;
 }
 
-
-.content .trainingsList > ul > li.addTraining >i.fa-plus {
-    padding: 18px;
-    color: var(--main-color);
-    border: 1px solid var(--main-color);
-    background-color: white; 
-    margin-right: 20px;
-}
-
-.content .trainingsList > ul > li.addTraining:hover {
-    cursor: pointer;
-}
-
-.content .trainingsList > ul > li.addTraining:hover >i.fa-plus {
-    color: white;
-    background-color: var(--main-color); 
-    margin-right: 20px;
+.content .exercisesList > div.tab > div.nameF {
+    width: 100%;
 }

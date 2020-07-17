@@ -83,7 +83,7 @@
 
 .content > div.trainingsList > div.backgroundItem div.chapter div.part div.addSession:hover {
     border: 1px dotted grey;  
-    background-color: white;
+    background-color: var(--main-color);
 }
 
 .content > div.trainingsList > div.backgroundItem div.chapter div.part div.session div.exercise {

@@ -13,11 +13,13 @@ import TrainingsList from './administration/trainings/TrainingsList';
 import StatisticsList from './administration/statistics/StatisticsList';
 import { PrivateRoute } from "../PrivateRoute.js";
 import {CredentialContext} from '../../contexts/CredentialContext';
+import {RunContext} from '../../contexts/RunContext';
 
 function Content() {
 
   const {isLogged} = useContext(CredentialContext);
   const {profile} = useContext(CredentialContext);
+  const [run, setRun] = useContext(RunContext);    
 
   const [isSignUpForm, setIsSignUpForm] = useState(false);
 
@@ -25,8 +27,8 @@ function Content() {
     <div className={`content`}>        
 
         <PrivateRoute path="/training" exact component={() => <TrainingsList user="user"/>}/>    
-        <PrivateRoute path="/statistics" exact component={Statistics}/> 
-        <PrivateRoute path="/run" exact component={Run}/> 
+        <PrivateRoute path="/statistics" exact component={() => <StatisticsList user="user"/>}/> 
+        {run && <PrivateRoute path="/run" exact component={Run}/>} 
         {profile.level === "admin" &&
         <Fragment>
           <PrivateRoute path="/admin" exact component={Admin}/>

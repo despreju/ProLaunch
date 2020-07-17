@@ -48,18 +48,21 @@ const TrainingsList = (props) => {
         <div className='list trainingsList'>  
             {displayTraining && <TrainingItem level={props.user} update={updateData} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={false} />}                              
             {displayNewTraining && <TrainingItem update={updateData} back={setDisplayNewTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={true} />}                              
-            <ul> 
-                {props.user === "admin" && 
-                <li key="1" className='addTraining' onClick={() => handleSetDisplayNewTraining()}>
+            {props.user === "admin" && 
+                <div key="1" className='add' onClick={() => handleSetDisplayNewTraining()}>
                     <i className="fas fa-plus"></i>
                     Ajouter un entrainement
-                </li>}              
+                </div>
+            }  
+            <div className="tab">
+                <div className="iconeF"></div>
+                <div className="nameF">Nom</div>
+            </div>
+            <ul>             
                 {data.map((training) =>       
                     <li className="item" key={training.id} onClick={() => handleSetDisplayTraining(training)}>
-                        <i className="fas fa-running"></i>
-                        <div className='infos'>
-                            <p className='name'>{training.name}</p>            
-                        </div>
+                        <div className="icone"><i className="fas fa-running"></i></div>
+                        <div className='name'>{training.name}</div>                        
                     </li>                
                 )}
             </ul>

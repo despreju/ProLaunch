@@ -75,47 +75,47 @@ input:focus {
   outline: initial;
 }
 
-.list > ul {
+.list > div.tab {
+  height: 50px;
+  background-color: white;
   display: flex;
-  list-style: none;   
-  padding: 0px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin: 0px 50px;
+  border-bottom: 2px solid grey;
+  align-items: center; 
+  font-weight: bold;
+}
+
+
+.list > ul {
+  list-style: none;
+  padding: 0px 50px;   
+  margin-top: 0px;
 }
 
 .list > ul > li {
-  position: relative;
+  height: 50px;
   background-color: white;
   display: flex;
-  vertical-align: top;
-  padding: 40px;
-  margin: 10px;
-  box-shadow: 0 0 2px 0px black;
-  width: 200px;
-  overflow: hidden;
+  margin: 0px;
+  border-bottom: 1px solid grey;
   align-items: center;
 }
 
 .list > ul > li:hover {
-  border: 2px solid var(--main-color);  
-  padding: 38px;
+  color: white;
+  background-color: orangered;
+  cursor: pointer;
 }
 
 .list > ul > li .fas {
-  font-size: 40px;
-  color:white;
-  background-color:grey;
-  font-size: 25px;
-  padding: 17px 15px 17px 15px;
-  border-radius:100%;
+  font-size: 20px;
 }
 
 .list > ul > li > div.infos{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-left: 20px;
-  justify-content: center;
+  width: 100%;
 }
 
 .list > ul > li > div.infos > p{
@@ -130,4 +130,74 @@ input:focus {
 .list > ul > li > div.infos > p.difficulty {
   font-style: italic;
   font-size: 14px;
+}
+
+.gauge {
+  border-radius: 5px;
+  height: 10px;
+}
+
+.gauge.one {
+  width: 20px;
+  background-color: green;
+}
+.gauge.two {
+  width: 40px;
+  background-color: yellowgreen;
+}
+.gauge.three {
+  width: 60px;
+  background-color: orange;
+}
+.gauge.four {
+  width: 80px;
+  background-color: orangered;
+}
+.gauge.five {
+  width: 100px;
+  background-color: red;
+}
+
+.content .list div.add {
+  font-weight: bold;
+  justify-content: center;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  margin: 10px 0px 30px 0px;
+  box-shadow: 0 0 2px 0px black;
+  align-items: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content .list div.add > i.fa-plus {
+  color: var(--main-color);
+  background-color: white;
+  margin-right: 20px;
+}
+
+.content .list div.add:hover {
+  cursor: pointer;
+  color: white;
+  background-color: orangered;
+}
+
+.content .list div.add:hover > i.fa-plus {
+  color: white;
+  background-color: var(--main-color); 
+  margin-right: 20px;
+}
+
+.content .list > ul > li > div.icone {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.content .list > div.tab > div.iconeF {
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }

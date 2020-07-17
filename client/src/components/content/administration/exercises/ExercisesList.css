@@ -2,26 +2,26 @@
     width: 100%;
 }
 
-.content .exercisesList > ul > li.addExercise {
-    align-items: center;
-    font-weight: bold;
+.content .exercisesList > ul > li > div.name {
+    width: 50%;
 }
 
-
-.content .exercisesList > ul > li.addExercise >i.fa-plus {
-    padding: 18px;
-    color: var(--main-color);
-    border: 1px solid var(--main-color);
-    background-color: white; 
-    margin-right: 20px;
+.content .exercisesList > ul > li > div.location {
+    width: 25%;
 }
 
-.content .exercisesList > ul > li.addExercise:hover {
-    cursor: pointer;
+.content .exercisesList > ul > li > div.difficulty {
+    width: 25%;
 }
 
-.content .exercisesList > ul > li.addExercise:hover >i.fa-plus {
-    color: white;
-    background-color: var(--main-color); 
-    margin-right: 20px;
+.content .exercisesList > div.tab > div.nameF {
+    width: 50%;
+}
+
+.content .exercisesList > div.tab > div.locationF {
+    width: 25%;
+}
+
+.content .exercisesList > div.tab > div.difficultyF {
+    width: 25%;
 }

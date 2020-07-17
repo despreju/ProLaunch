@@ -51,6 +51,7 @@ export default function Run() {
             const duration = new Date().getTime() - startTime;
             const state = 'finish';
             const { data } = await API.createRun({ training, user, duration, state });
+            localStorage.removeItem("run");
             setRun(null);
         } catch (error) {
             console.error(error);
@@ -93,8 +94,8 @@ export default function Run() {
             </Fragment>  
             }         
             {progressIndex === usableRun.length &&
-                <Link to="/"> 
-                    <div className="finishButton" onClick={() => finishRun()}>Fin</div>
+                <Link to="/" onClick={() => finishRun()}> 
+                    <div className="finishButton">Fin</div>
                 </Link>
             }
         </div>
