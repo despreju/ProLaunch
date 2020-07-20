@@ -1,4 +1,5 @@
 const Exercise = require("../../schema/schemaExercise");
+const Training = require ("../../schema/schemaTraining");
 
 async function createExercise(req, res) {
   const { name, difficulty, location } = req.body;
@@ -48,10 +49,35 @@ async function deleteExercise(req, res) {
     });
   }
   try {    
-    await Exercise.findOneAndRemove({name});
-    return res.status(200).json({
-      text: "Succès"
-    });
+    const findExercise = await Exercise.findOne({name}).lean();
+    const trainings = await Training.find().populate({ 
+                                                        path: 'chapters.sessions.exercise',
+                                                        model: 'Exercise',
+                                                        select : '-__v'
+                                                    }).lean();
+    const trainingsImpacted = [];
+
+    for (iteratorTraining in trainings) {      
+      for (iteratorChapter in trainings[iteratorTraining].chapters) {
+        for (iteratorSession in trainings[iteratorTraining].chapters[iteratorChapter].sessions) {
+          if (trainings[iteratorTraining].chapters[iteratorChapter].sessions[iteratorSession].exercise.name === findExercise.name) {
+            trainingsImpacted.push(trainings[iteratorTraining].name);
+          }
+        }
+      }
+    }
+    if (trainingsImpacted.length === 0) {
+      await Exercise.findOneAndRemove({name});
+      return res.status(200).json({
+        text: "Succès"
+      });
+    } else {
+      return res.status(200).json({
+        text: "Erreur",
+        trainings: [ ...new Set(trainingsImpacted)]
+      });
+    }
+    
   } catch (error) {
     return res.status(500).json({
       error

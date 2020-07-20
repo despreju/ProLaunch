@@ -26,16 +26,21 @@ const UsersList = (props) => {
 
     return (     
         <div className='list usersList'>  
-        {displayUser && <UserItem back={setDisplayUser} data={userData}/>}                              
+            {displayUser && <UserItem back={setDisplayUser} data={userData}/>}                         
+            <div className="tab">
+                <div className="iconeF"></div>
+                <div className="nameF">Nom</div>
+                <div className="emailF">Email</div>
+                <div className="levelF">Niveau</div>
+            </div>        
             <ul>    
                 {data.map((user) =>
                     <li className="item" key={user.id} onClick={() => handleSetDisplayUser(user)}>
-                    <i className="fas fa-user"></i>
-                    <div className='infos'>
-                        <p className='name'>{user.name}</p>
-                        <p className='email'>{user.email}</p>
-                    </div>
-                </li>
+                        <div className="icone"><i className="fas fa-user"></i></div>
+                        <div className="name">{user.name}</div>
+                        <div className="email">{user.email}</div>
+                        <div className={`level ${user.level}`}><p>{user.level}</p></div>                        
+                    </li>
                 )}
             </ul>
         </div>

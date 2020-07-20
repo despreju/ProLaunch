@@ -1,0 +1,19 @@
+div.errorContent {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 2px solid red;
+    background-color: lightpink;
+    align-items: center;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+p.errorTitle {
+
+}
+
+p.errorData {
+    font-weight: bold;
+    margin: 5px 0px;
+}

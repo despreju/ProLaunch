@@ -31,6 +31,7 @@ div.option > div > p {
 
 div.option > div:hover > p {    
     display: initial;
+    max-width: 60%;
 }
 
 div.option > a {    
