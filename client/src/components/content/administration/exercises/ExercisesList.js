@@ -3,6 +3,7 @@ import API from "../../../../utils/API.js";
 import './ExercisesList.css';
 import NewExercise from './NewExercise.js';
 import ExerciseItem from './ExerciseItem.js';
+import Gauge from '../../Gauge.js';
 
 const ExercisesList = () => {
 
@@ -56,11 +57,7 @@ const ExercisesList = () => {
                         <div className="icone"><i className="fas fa-dumbbell"></i></div>
                         <div className='name'>{exercise.name}</div>
                         <div className='difficulty'>
-                            {exercise.difficulty === 1 && <div className="gauge one"/>}
-                            {exercise.difficulty === 2 && <div className="gauge two"/>}
-                            {exercise.difficulty === 3 && <div className="gauge three"/>}
-                            {exercise.difficulty === 4 && <div className="gauge four"/>}
-                            {exercise.difficulty === 5 && <div className="gauge five"/>}
+                            <Gauge level={exercise.difficulty}/>
                         </div>
                         <div className='location'>{exercise.location}</div>                               
                     </li>          

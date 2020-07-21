@@ -132,32 +132,6 @@ input:focus {
   font-size: 14px;
 }
 
-.gauge {
-  border-radius: 5px;
-  height: 10px;
-}
-
-.gauge.one {
-  width: 20px;
-  background-color: green;
-}
-.gauge.two {
-  width: 40px;
-  background-color: yellowgreen;
-}
-.gauge.three {
-  width: 60px;
-  background-color: orange;
-}
-.gauge.four {
-  width: 80px;
-  background-color: orangered;
-}
-.gauge.five {
-  width: 100px;
-  background-color: red;
-}
-
 .content .list div.add {
   font-weight: bold;
   justify-content: center;

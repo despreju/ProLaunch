@@ -1,0 +1,154 @@
+div.run div.chainon {
+    position: relative;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    justify-content: center;
+    align-items: center;
+}
+
+div.run div.chainon.blankLeft {
+    background-color: lightgrey;    
+    z-index: 0;
+    width: 45%;
+}
+
+div.run div.chainon.blankRight {
+    background-color: lightgrey;    
+    z-index: 0;
+    width: 55%;
+}
+
+div.run div.chainon.previous {
+    background-color: whitesmoke;
+    z-index: 150;
+    width: 45%;
+}
+
+div.run div.chainon.start.previous {
+    background-color: green;
+    z-index: 150;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+div.run div.chainon.start.current {
+    background-color: green;
+    width: 100%;
+    z-index: 99;
+    cursor: pointer;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+    font-size: 50px;
+}
+
+div.run div.chainon.current {
+    background-color: var(--main-color);
+    width: 100%;
+    z-index: 99;
+    cursor: pointer;
+    color: white;
+    text-transform: uppercase;
+}
+
+div.run div.chainon.next {
+    background-color: whitesmoke;
+    color: black;
+    width: 45%;
+}
+
+div.run div.chainon.next.finish {
+    background-color: red;
+    color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+div.run div.chainon.current.finish {
+    background-color: red;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: white;
+    font-size: 50px;
+}
+
+div.run div.start:after, 
+div.run div.start:before, 
+div.run div.previous:after, 
+div.run div.previous:before, 
+div.run div.current:after, 
+div.run div.current:before
+{
+    content:"";
+    position:absolute;
+    width:70px;
+    height:50%;
+    left:100%;
+}
+
+div.run div.start.previous:after {
+    bottom:0;
+    background: linear-gradient(to right bottom, green 50%, transparent 50%);
+}
+ 
+div.run div.start.previous:before {
+    top:0;
+    background: linear-gradient(to right top, green 50%, transparent 50%);
+}
+
+div.run div.start.current:after {
+    bottom:0;
+    background: linear-gradient(to right bottom, green 50%, transparent 50%);
+}
+ 
+div.run div.start.current:before {
+    top:0;
+    background: linear-gradient(to right top, green 50%, transparent 50%);
+}
+
+div.run div.previous:after {
+    bottom:0;
+    background: linear-gradient(to right bottom, whitesmoke 50%, transparent 50%);
+}
+ 
+div.run div.previous:before {
+    top:0;
+    background: linear-gradient(to right top, whitesmoke 50%, transparent 50%);
+}
+
+div.run div.current:after {
+    bottom:0;
+    background: linear-gradient(to right bottom, var(--main-color) 50%, transparent 50%);
+}
+
+div.run div.current:before {
+    top:0;
+    background: linear-gradient(to right top, var(--main-color) 50%, transparent 50%);
+}
+
+div.run div.current.finish:after {
+    bottom:0;
+    background: linear-gradient(to right bottom, transparent 50%, transparent 50%);
+}
+
+div.run div.current.finish:before {
+    top:0;
+    background: linear-gradient(to right top, transparent 50%, transparent 50%);
+}
+
+div.run div.part {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+div.run div.current div.part.exerciseInfos {
+    font-size: 50px;
+}
+div.run div.current div.part {
+    padding-left: 60px;
+}

@@ -29,7 +29,7 @@ const Run = require("../../schema/schemaRun");
     try {
       const rep = (await Run.find());
       const runsList = [];
-      rep.forEach(element => runsList.push({id:element.id, training:element.training, duration:element.duration, state:element.state, user:element.user}));
+      rep.forEach(element => runsList.push({id:element.id, training:element.training, duration:element.duration, state:element.state, user:element.user, date:element.created_at}));
       return res.status(200).json(
         runsList
       );

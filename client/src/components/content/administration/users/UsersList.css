@@ -12,6 +12,7 @@
 
 .content .usersList > ul > li > div.level {
     width: 20%;
+    font-size: 15px;
 }
 
 .content .usersList > div.tab > div.nameF {
