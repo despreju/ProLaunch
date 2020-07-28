@@ -44,9 +44,14 @@ const TrainingsList = (props) => {
         setDisplayNewTraining(false);        
     }
 
+    const cancelEdit = () => {        
+        setDisplayTraining(false);
+        setForceUpdate(!forceUpdate);
+    }
+
     return (                       
         <div className='list trainingsList'>  
-            {displayTraining && <TrainingItem level={props.user} update={updateData} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={false} />}                              
+            {displayTraining && <TrainingItem level={props.user} update={updateData} cancelEdit={cancelEdit} back={setDisplayTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={false} />}                              
             {displayNewTraining && <TrainingItem update={updateData} back={setDisplayNewTraining} data={dataToLoad} trainingName={dataName} trainingId={dataId} isEditMode={true} />}                              
             {props.user === "admin" && 
                 <div key="1" className='add' onClick={() => handleSetDisplayNewTraining()}>

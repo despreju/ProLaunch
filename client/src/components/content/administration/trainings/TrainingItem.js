@@ -66,6 +66,11 @@ const TrainingItem = (props) => {
     props.back();
   }
 
+  //back form
+  const cancelEdit = () => {
+    props.cancelEdit();
+  }
+
   //edit form
   const edit = () => {
     setIsEditMode(true);
@@ -167,7 +172,7 @@ const TrainingItem = (props) => {
           <Option back={back} start={start}/> :
           <Fragment>
             {isEditMode ? 
-              <Option back={back} valid={send}/> :
+              <Option back={cancelEdit} valid={send}/> :
               <Option back={back} edit={edit} remove={remove}/>
             }
           </Fragment>
