@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import API from "../../utils/API";
 import './Signup.css';
 import ErrorLogin from './ErrorLogin'
+import loader from '../../91.svg';
 
 function Signup() {
 
@@ -12,6 +13,7 @@ function Signup() {
   const [cpassword, setCpassword] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   //Handle
   const handleSetEmail = (event) => {
@@ -29,6 +31,7 @@ function Signup() {
 
   const send = async () => {
     try {
+      setLoading(true);
       if (!email || email.length === 0) throw new Error('Opss!');
       if (!name || name.length === 0) throw new Error('Opss!');
       if (!password || password.length === 0 || password !== cpassword) throw new Error('Opss!');
@@ -38,30 +41,34 @@ function Signup() {
       localStorage.setItem("profile", JSON.stringify(profile));
       window.location = "/";
     } catch (error) {
-      setError(error.message);
+      setLoading(false);
+      error.response ? setError(error.response.data.text) : setError(error.message);
     }
   };
 
     return (
       <div className="tuile signup">
-        <Form.Group controlId="email">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleSetEmail} />
-        </Form.Group>
-        <Form.Group controlId="email">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="name" placeholder="Enter email" value={name} onChange={handleSetName} />
-        </Form.Group>  
-        <Form.Group controlId="email">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Enter email" value={password} onChange={handleSetPassword} />
-        </Form.Group>  
-        <Form.Group controlId="email">
-          <Form.Label>Confirmation password</Form.Label>
-          <Form.Control type="cpassword" placeholder="Enter email" value={cpassword} onChange={handleSetCpassword} />
-        </Form.Group>      
-        <div className='button' onClick={send}>Inscription</div>
-        {error && <ErrorLogin error={error}/>}   
+      {loading ? <img src={loader} className="loader"/> :
+        <div className="form">
+          <Form.Group controlId="email">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleSetEmail} />
+          </Form.Group>
+          <Form.Group controlId="email">
+            <Form.Label>Name</Form.Label>
+            <Form.Control type="name" placeholder="Enter email" value={name} onChange={handleSetName} />
+          </Form.Group>  
+          <Form.Group controlId="email">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Enter email" value={password} onChange={handleSetPassword} />
+          </Form.Group>  
+          <Form.Group controlId="email">
+            <Form.Label>Confirmation password</Form.Label>
+            <Form.Control type="cpassword" placeholder="Enter email" value={cpassword} onChange={handleSetCpassword} />
+          </Form.Group>      
+          <div className='button' onClick={send}>Inscription</div>
+          {error && <ErrorLogin error={error}/>}   
+        </div>}
       </div>
     );
 
