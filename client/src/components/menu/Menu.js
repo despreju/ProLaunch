@@ -1,6 +1,6 @@
-import React, { Fragment, useContext, useState} from 'react';
+import React, { Fragment, useContext } from 'react';
 import MenuItem from './MenuItem';
-import './Menu.css';
+import '../css/Menu.css';
 import {CredentialContext} from '../../contexts/CredentialContext';
 import {RunContext} from '../../contexts/RunContext';
 import {MenuContext} from '../../contexts/MenuContext';

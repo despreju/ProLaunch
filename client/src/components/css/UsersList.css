@@ -1,0 +1,46 @@
+.content .usersList {  
+    width: 100%;
+}
+
+.content .usersList > ul > li > div.name {
+    width: 40%;
+}
+
+.content .usersList > ul > li > div.email {
+    width: 40%;
+}
+
+.content .usersList > ul > li > div.level {
+    width: 20%;
+    font-size: 15px;
+}
+
+.content .usersList > div.tab > div.nameF {
+    width: 40%;
+}
+
+.content .usersList > div.tab > div.emailF {
+    width: 40%;
+}
+
+.content .usersList > div.tab > div.levelF {
+    width: 20%;
+}
+
+.content .usersList > ul > li > div.level.admin > p {
+    background-color: gold;
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
+.content .usersList > ul > li > div.level.user > p {
+    background-color: lightgreen;
+    width: fit-content;
+    padding: 3px 7px;
+    border-radius: 10px;
+    color: green;
+    text-transform: uppercase;
+}

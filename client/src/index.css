@@ -1,8 +1,8 @@
 html, body {
   margin: 0;
   height: 100%;
-  font-family: Roboto, sans-serif;
-  --main-color: rgb(255, 69, 0);
+  font-family: Montserrat, sans-serif;
+  --main-color: #5260ad;
   --main-color-transparent: rgba(255, 69, 0, 0.1);
 }
 
@@ -37,21 +37,17 @@ input:focus {
 }
 
 .button {
-  display: flex;
-  align-items: center;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: .0892857143em;
-  border-radius: 5px;
-  border: 1px solid var(--main-color);
-  background-color: white;
-  color: var(--main-color);  
-  padding: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+    text-transform: uppercase;
+    border-radius: 999px;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    padding: 10px 30px;
+    margin: 20px auto;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-image: linear-gradient(to right, transparent 50%, #384AAB 50%, #677EF9);
+    background-size: 201%;
+    transition: 0.2s ease-in-out;
 }
 
 .button .fas{
@@ -60,9 +56,9 @@ input:focus {
 }
 
 .button:hover {
-  border: 1px solid var(--main-color);
-  background-color: var(--main-color-transparent);
-  padding: 10px;
+  color: white;
+  background-position: 100%;
+  border: 2px solid white;
   cursor: pointer;
 }
 
@@ -103,7 +99,7 @@ input:focus {
 
 .list > ul > li:hover {
   color: white;
-  background-color: orangered;
+  background-color: var(--main-color);
   cursor: pointer;
 }
 
@@ -155,7 +151,7 @@ input:focus {
 .content .list div.add:hover {
   cursor: pointer;
   color: white;
-  background-color: orangered;
+  background-color: var(--main-color);
 }
 
 .content .list div.add:hover > i.fa-plus {

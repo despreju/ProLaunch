@@ -1,0 +1,89 @@
+.login {
+    padding: 20px;
+    margin-top: 100px;
+    height: fit-content;
+    min-height: 222px;
+    width: 350px;
+    display: flex;
+    justify-content: center;    
+    background-color: white;
+    box-shadow: 0px 0px 3px 0px black;
+    border-radius: 15px;
+}
+
+div.form {
+    width: 100%;
+}
+
+div.form h2 {
+    margin-bottom: 50px;
+    margin-top: 10px;
+    color: #666;
+    font-weight: 500;
+}
+
+div.form h2 strong {
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.login div.formGroup {
+    position: relative; 
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.login div.formGroup label {
+    position: absolute; 
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+    z-index: 1;
+}
+
+.login div.formGroup input {
+    display: block;
+    width: 100%;
+    padding: 5px 0px;
+    border: none;
+    outline: none;
+    background: none;
+    border-bottom: 2px solid #aaa;
+    color: #666;
+    font-size: 18px;
+    transition: 0.2s ease-in-out;
+    z-index: 2;
+}
+
+.login div.formGroup:focus-within label, 
+.login div.formGroup.animated label {
+    top: 0px; 
+    transform: translateY(-100%);
+    color: var(--main-color);
+}
+
+.login div.formGroup:focus-within input, 
+.login div.formGroup.animated input {
+    border-bottom-color: var(--main-color);
+}
+
+button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.login .signupButton {
+    color: var(--main-color);
+    font-size: 12px;    
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.login .signupButton:hover {
+    border-bottom: 1px solid var(--main-color);
+}

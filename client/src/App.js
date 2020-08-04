@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 
 //Components
-import Header from './components/header/Header';
+import Header from './components/Header';
 import Menu from './components/menu/Menu';
-import Content from './components/content/Content';
+import Content from './components/Content';
 import {BrowserRouter as Router} from 'react-router-dom';
 
 //Contexts
