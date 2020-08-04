@@ -23,8 +23,7 @@ const RunsList = (props) => {
         const fetchData = async () => {
             let result = [];
             const email = profile.email;
-            (props.user !== "user") ? result = await API.getAllRuns() : result = await API.getAllRunsByUser({email});
-            
+            (props.user !== "user") ? result = await API.getAllRuns() : result = await API.getAllRunsByUser({email});            
             setData(result.data);
         };
         fetchData();
@@ -45,12 +44,12 @@ const RunsList = (props) => {
                 <div className="dateF">Date</div>
             </div>   
             <ul>    
-                {data.map((statistic) =>
-                    <li className="item" key={statistic.id} onClick={() => handleSetDisplayStatistic(statistic)}>
+                {data.map((run) =>
+                    <li className="item" key={run.id} onClick={() => handleSetDisplayStatistic(run)}>
                         <div className="icone"><i className="fas fa-chart-bar"></i></div>
-                        <div className='name'>{statistic.user}</div>
-                        <div className='training'>{statistic.training}</div>
-                        <div className='date'>{statistic.date}</div>                        
+                        <div className='name'>{run.user}</div>
+                        <div className='training'>{run.training}</div>
+                        <div className='date'>{run.date}</div>                        
                     </li>
                 )}
             </ul>

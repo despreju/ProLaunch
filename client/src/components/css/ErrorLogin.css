@@ -1,9 +1,9 @@
-.tuile div.error {
+.login div.error {
     padding: 10px;
-    margin-bottom: 20px;
-    background-color: white;
-    border-radius: 10px;
-    color: red;    
-    font-weight: bold;
-    border: 2px solid red;
+    background-color: red;
+    color: white;
+    border: 0px solid red;
+    margin: 0px -20px 20px -20px;
+    justify-content: center;
+    display: flex;
 }

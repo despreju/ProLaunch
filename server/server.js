@@ -28,6 +28,10 @@ const urlencodedParser = bodyParser.urlencoded({
 app.use(urlencodedParser);
 app.use(bodyParser.json());
 
+//for AWS
+const path = require("path");
+app.use(express.static(path.join(__dirname, "client/build")))
+
 //Définition des CORS
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');

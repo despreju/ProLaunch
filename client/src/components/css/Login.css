@@ -65,7 +65,6 @@ div.form h2 strong {
     color: var(--main-color);
 }
 
-.login div.formGroup:focus-within input, 
 .login div.formGroup.animated input {
     border-bottom-color: var(--main-color);
 }
@@ -86,4 +85,5 @@ button {
 
 .login .signupButton:hover {
     border-bottom: 1px solid var(--main-color);
+    margin-bottom: 9px;
 }

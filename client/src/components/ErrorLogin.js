@@ -5,7 +5,7 @@ const ErrorLogin = (props) => {
 
     return (
         <div className="error">
-            {props.error};            
+            {props.error}            
         </div>
     )
 
